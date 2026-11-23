@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Collection — AURELIA Atelier</title>
+  <meta name="description" content="Explore The Atelier Collection — architectural outerwear, bespoke shirting, artisanal footwear, and handcrafted leather objects." />
+  <meta property="og:title" content="The Collection — AURELIA Atelier" />
+  <meta property="og:description" content="Explore architectural outerwear, bespoke tailoring, and artisanal leather pieces curated by AURELIA Atelier." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="bg-[#faf9f6] text-[#121212] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-[#faf9f6]">
+
+  <!-- Header Anchor -->
+  <div id="app-header" class="min-h-[116px]"></div>
+
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-10 pb-28 md:pb-10">
+
+    <!-- Breadcrumb & Page Header -->
+    <div class="pb-6 border-b border-[#eae8e3]">
+      <nav class="text-[10px] tracking-[0.2em] uppercase text-[#737373] mb-2 flex items-center gap-1.5" aria-label="Breadcrumb">
+        <a href="/index.html" class="hover:text-[#121212] transition">Home</a>
+        <span>/</span>
+        <a href="/shop.html" class="hover:text-[#121212] transition">The Collection</a>
+        <span>/</span>
+        <span id="breadcrumb-category" class="text-[#121212] font-semibold">All Pieces</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mt-2">
+        <div>
+          <h1 class="font-editorial text-3xl sm:text-4xl text-[#121212] font-normal tracking-[-0.02em]">
+            The Atelier Collection
+          </h1>
+          <p class="text-xs text-[#737373] mt-1 font-light">
+            Bespoke cuts, architectural proportions, and tactile natural fibers.
+          </p>
+        </div>
+
+        <!-- Desktop Results Count & Sort Dropdown -->
+        <div class="flex items-center gap-4 self-start sm:self-auto">
+          <span id="results-count" class="text-xs text-[#737373] font-medium whitespace-nowrap">Cataloging pieces...</span>
+          
+          <div class="hidden sm:flex items-center gap-2">
+            <label for="sort-select" class="text-[10px] uppercase tracking-wider text-[#737373] font-semibold">Sort By:</label>
+            <select 
+              id="sort-select" 
+              class="text-xs bg-white border border-[#eae8e3] px-3 py-2 text-[#121212] focus:outline-none focus:border-[#121212] font-medium cursor-pointer shadow-2xs"
+            >
+              <option value="recommended">Curator's Recommendation</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Customer Rating</option>
+              <option value="discount">Seasonal Privileges (% Off)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Chips Bar -->
+      <div id="active-filters-bar" class="hidden flex-wrap items-center gap-2 pt-4 mt-4 border-t border-[#eae8e3]/70">
+        <span class="text-[10px] uppercase tracking-wider text-[#737373] font-semibold mr-1">Active:</span>
+        <div id="active-chips-container" class="flex flex-wrap items-center gap-1.5">
+          <!-- Dynamically populated via shop.js -->
+        </div>
+        <button 
+          type="button" 
+          id="clear-all-chips" 
+          class="text-[10px] uppercase tracking-wider font-semibold text-[#121212] hover:text-[#c25e40] ml-2 underline cursor-pointer"
+        >
+          Clear All
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Shop Layout: Left Sticky Sidebar + Right Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-10 pt-8 items-start">
+
+      <!-- Desktop Filter Sidebar -->
+      <aside class="hidden md:block col-span-1 space-y-6 sticky top-28 bg-[#faf9f6]/80 backdrop-blur-xs p-5 border border-[#eae8e3] max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
+        
+        <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
+          <span class="text-xs font-bold uppercase tracking-[0.16em] text-[#121212]">Filters</span>
+          <button 
+            type="button" 
+            id="sidebar-clear-all" 
+            class="text-[10px] uppercase tracking-wider text-[#737373] hover:text-[#121212] font-semibold cursor-pointer"
+          >
+            Clear All
+          </button>
+        </div>
+
+        <!-- Keyword Filter -->
+        <div class="space-y-2 pb-4 border-b border-[#eae8e3]">
+          <label for="shop-search" class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212] block">Search Nomenclature</label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="shop-search" 
+              placeholder="e.g. Linen, Trench, Trousers..." 
+              class="w-full text-xs bg-white border border-[#eae8e3] py-2 pl-3 pr-8 text-[#121212] focus:outline-none focus:border-[#121212]"
+            />
+            <button type="button" id="shop-search-clear" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a3a3a3] hover:text-[#121212]">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Department / Categories Accordion -->
+        <div class="space-y-2.5 pb-4 border-b border-[#eae8e3]">
+          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Departments</h3>
+          <div class="space-y-2" id="categories-checkbox-group">
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="category" value="men" class="custom-checkbox filter-category-cb" />
+                <span>Men's Wardrobe</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-cat-men">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="category" value="women" class="custom-checkbox filter-category-cb" />
+                <span>Women's Atelier</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-cat-women">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="category" value="footwear" class="custom-checkbox filter-category-cb" />
+                <span>Artisanal Footwear</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-cat-footwear">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="category" value="accessories" class="custom-checkbox filter-category-cb" />
+                <span>Leather Objects</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-cat-accessories">(0)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Atelier Brand Accordion -->
+        <div class="space-y-2.5 pb-4 border-b border-[#eae8e3]">
+          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Design Houses & Brands</h3>
+          <div class="space-y-2" id="brands-checkbox-group">
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="brand" value="AURELIA ATELIER" class="custom-checkbox filter-brand-cb" />
+                <span>AURELIA ATELIER</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-brand-aurelia">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="brand" value="STUDIO MONOLITH" class="custom-checkbox filter-brand-cb" />
+                <span>STUDIO MONOLITH</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-brand-monolith">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="brand" value="KAIRO FORM" class="custom-checkbox filter-brand-cb" />
+                <span>KAIRO FORM</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-brand-kairo">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="brand" value="VELLUM & CO." class="custom-checkbox filter-brand-cb" />
+                <span>VELLUM & CO.</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-brand-vellum">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="brand" value="ATELIER ÉPURE" class="custom-checkbox filter-brand-cb" />
+                <span>ATELIER ÉPURE</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-brand-epure">(0)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Size / Fit Accordion -->
+        <div class="space-y-2.5 pb-4 border-b border-[#eae8e3]">
+          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Sizes</h3>
+          <div class="grid grid-cols-3 gap-2" id="sizes-checkbox-group">
+            <label class="flex items-center justify-center p-1.5 border border-[#eae8e3] text-xs font-semibold text-[#525252] hover:border-[#121212] hover:text-[#121212] cursor-pointer text-center has-checked:bg-[#121212] has-checked:text-white has-checked:border-[#121212]">
+              <input type="checkbox" name="size" value="XS" class="sr-only filter-size-cb" />
+              <span>XS</span>
+            </label>
+            <label class="flex items-center justify-center p-1.5 border border-[#eae8e3] text-xs font-semibold text-[#525252] hover:border-[#121212] hover:text-[#121212] cursor-pointer text-center has-checked:bg-[#121212] has-checked:text-white has-checked:border-[#121212]">
+              <input type="checkbox" name="size" value="S" class="sr-only filter-size-cb" />
+              <span>S</span>
+            </label>
+            <label class="flex items-center justify-center p-1.5 border border-[#eae8e3] text-xs font-semibold text-[#525252] hover:border-[#121212] hover:text-[#121212] cursor-pointer text-center has-checked:bg-[#121212] has-checked:text-white has-checked:border-[#121212]">
+              <input type="checkbox" name="size" value="M" class="sr-only filter-size-cb" />
+              <span>M</span>
+            </label>
+            <label class="flex items-center justify-center p-1.5 border border-[#eae8e3] text-xs font-semibold text-[#525252] hover:border-[#121212] hover:text-[#121212] cursor-pointer text-center has-checked:bg-[#121212] has-checked:text-white has-checked:border-[#121212]">
+              <input type="checkbox" name="size" value="L" class="sr-only filter-size-cb" />
+              <span>L</span>
+            </label>
+            <label class="flex items-center justify-center p-1.5 border border-[#eae8e3] text-xs font-semibold text-[#525252] hover:border-[#121212] hover:text-[#121212] cursor-pointer text-center has-checked:bg-[#121212] has-checked:text-white has-checked:border-[#121212]">
+              <input type="checkbox" name="size" value="XL" class="sr-only filter-size-cb" />
+              <span>XL</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range Accordion -->
+        <div class="space-y-3 pb-4 border-b border-[#eae8e3]">
+          <div class="flex items-center justify-between">
+            <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Price Valuation</h3>
+            <span id="price-display" class="text-xs font-bold text-[#121212]">₹6,000</span>
+          </div>
+          <input 
+            type="range" 
+            id="price-range" 
+            min="1000" 
+            max="6000" 
+            step="100" 
+            value="6000" 
+            class="w-full accent-[#121212] cursor-pointer"
+          />
+          <div class="space-y-2 pt-1" id="price-buckets-group">
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="priceBucket" value="under-2500" class="custom-checkbox filter-price-cb" />
+                <span>Under ₹2,500</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-price-under-2500">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="priceBucket" value="2500-3500" class="custom-checkbox filter-price-cb" />
+                <span>₹2,500 - ₹3,500</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-price-2500-3500">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="checkbox" name="priceBucket" value="above-3500" class="custom-checkbox filter-price-cb" />
+                <span>Above ₹3,500</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-price-above-3500">(0)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Discount Privilege Accordion -->
+        <div class="space-y-2.5 pb-4 border-b border-[#eae8e3]">
+          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Privilege / Discount</h3>
+          <div class="space-y-2" id="discount-group">
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="discount" value="40" class="accent-[#121212] filter-discount-rb" />
+                <span>40% and above</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-disc-40">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="discount" value="30" class="accent-[#121212] filter-discount-rb" />
+                <span>30% and above</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-disc-30">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="discount" value="0" checked class="accent-[#121212] filter-discount-rb" />
+                <span>All Privileges</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Customer Rating Accordion -->
+        <div class="space-y-2.5">
+          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Client Ratings</h3>
+          <div class="space-y-2" id="rating-group">
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="rating" value="4.5" class="accent-[#121212] filter-rating-rb" />
+                <span>4.5★ and above</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-rat-45">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="rating" value="4.0" class="accent-[#121212] filter-rating-rb" />
+                <span>4.0★ and above</span>
+              </span>
+              <span class="text-[10px] text-[#a3a3a3]" id="count-rat-40">(0)</span>
+            </label>
+            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
+              <span class="flex items-center gap-2.5">
+                <input type="radio" name="rating" value="0" checked class="accent-[#121212] filter-rating-rb" />
+                <span>All Ratings</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Right Product Listing Grid -->
+      <section class="col-span-1 md:col-span-3">
+        <div 
+          id="products-grid" 
+          class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 min-h-[400px]"
+          aria-live="polite"
+        >
+          <!-- Dynamically populated via shop.js -->
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Mobile Fixed Bottom Filter & Sort Bar (Positioned cleanly above Mobile Bottom Nav) -->
+  <div class="md:hidden fixed bottom-14 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#eae8e3] flex divide-x divide-[#eae8e3] shadow-md">
+    <button 
+      type="button" 
+      id="mobile-sort-btn" 
+      class="flex-1 py-3.5 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-[#121212] active:bg-[#faf9f6]"
+    >
+      <i data-lucide="arrow-right" class="w-4 h-4 rotate-90"></i>
+      <span>Sort</span>
+    </button>
+    <button 
+      type="button" 
+      id="mobile-filter-btn" 
+      class="flex-1 py-3.5 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-[#121212] active:bg-[#faf9f6]"
+    >
+      <i data-lucide="filter" class="w-4 h-4"></i>
+      <span>Filter</span>
+      <span id="mobile-filter-badge" class="hidden w-2 h-2 rounded-full bg-[#121212]"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Slide-Over Filter Drawer -->
+  <div id="mobile-filter-drawer" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div id="filter-drawer-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-xs transition-opacity"></div>
+    
+    <!-- Drawer Content -->
+    <div class="absolute inset-y-0 right-0 max-w-full w-full sm:w-96 bg-white shadow-2xl flex flex-col justify-between">
+      
+      <!-- Drawer Header -->
+      <div class="p-5 border-b border-[#eae8e3] flex items-center justify-between">
+        <div>
+          <h2 class="text-sm font-bold uppercase tracking-wider text-[#121212]">Filter Pieces</h2>
+          <span class="text-[11px] text-[#737373]">Select criteria to refine results</span>
+        </div>
+        <button type="button" id="close-filter-drawer" class="p-2 text-[#525252] hover:text-[#121212]">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Drawer Body (Filter Controls) -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-6" id="mobile-filter-controls">
+        <!-- Rendered via shop.js -->
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="p-4 border-t border-[#eae8e3] bg-[#faf9f6] flex gap-3">
+        <button 
+          type="button" 
+          id="mobile-clear-all" 
+          class="flex-1 py-3 border border-[#eae8e3] bg-white text-xs font-semibold uppercase tracking-wider text-[#525252] hover:border-[#121212]"
+        >
+          Clear All
+        </button>
+        <button 
+          type="button" 
+          id="mobile-apply-filters" 
+          class="flex-1 py-3 bg-[#121212] text-white text-xs font-semibold uppercase tracking-wider hover:bg-black"
+        >
+          Apply Filters
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Sort Bottom Sheet Modal -->
+  <div id="mobile-sort-sheet" class="fixed inset-0 z-50 hidden">
+    <div id="sort-sheet-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
+    <div class="absolute bottom-0 inset-x-0 bg-white rounded-t-2xl shadow-2xl p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-[#121212]">Sort Pieces By</h3>
+        <button type="button" id="close-sort-sheet" class="p-1 text-[#737373] hover:text-[#121212]">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3" id="mobile-sort-options">
+        <label class="flex items-center justify-between py-2 text-xs font-medium text-[#121212] cursor-pointer border-b border-[#eae8e3]/50">
+          <span>Curator's Recommendation</span>
+          <input type="radio" name="mobileSort" value="recommended" checked class="accent-[#121212]" />
+        </label>
+        <label class="flex items-center justify-between py-2 text-xs font-medium text-[#121212] cursor-pointer border-b border-[#eae8e3]/50">
+          <span>Price: Low to High</span>
+          <input type="radio" name="mobileSort" value="price-low" class="accent-[#121212]" />
+        </label>
+        <label class="flex items-center justify-between py-2 text-xs font-medium text-[#121212] cursor-pointer border-b border-[#eae8e3]/50">
+          <span>Price: High to Low</span>
+          <input type="radio" name="mobileSort" value="price-high" class="accent-[#121212]" />
+        </label>
+        <label class="flex items-center justify-between py-2 text-xs font-medium text-[#121212] cursor-pointer border-b border-[#eae8e3]/50">
+          <span>Customer Rating</span>
+          <input type="radio" name="mobileSort" value="rating" class="accent-[#121212]" />
+        </label>
+        <label class="flex items-center justify-between py-2 text-xs font-medium text-[#121212] cursor-pointer">
+          <span>Seasonal Privileges (% Off)</span>
+          <input type="radio" name="mobileSort" value="discount" class="accent-[#121212]" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Anchor -->
+  <div id="app-footer"></div>
+
+  <script type="module" src="/src/js/pages/shop.js"></script>
+</body>
+</html>

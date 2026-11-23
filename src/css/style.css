@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "photoswipe/style.css";
+
+@theme {
+  --color-canvas-bg: #faf9f6; /* Warm alabaster/linen */
+  --color-canvas-white: #ffffff;
+  --color-ink-950: #121212; /* Deep bespoke carbon black */
+  --color-ink-800: #262626;
+  --color-ink-600: #525252;
+  --color-ink-400: #a3a3a3;
+  --color-border-subtle: #eae8e3;
+  --color-terracotta: #c25e40; /* Editorial warm earthy terracotta accent */
+  --color-olive: #3d4a3e; /* Muted forest olive */
+  --font-serif: 'Playfair Display', Georgia, Cambria, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Editorial typography & smooth scrolling */
+html {
+  background-color: var(--color-canvas-bg);
+  color: var(--color-ink-950);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+}
+
+/* Lenis recommended core styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Serif Headings */
+.font-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Navigation Arrows for Hero and PDP */
+.hero-nav-prev,
+.hero-nav-next,
+.pdp-nav-prev,
+.pdp-nav-next {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-nav-prev:hover,
+.hero-nav-next:hover,
+.pdp-nav-prev:hover,
+.pdp-nav-next:hover {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  border-color: #121212 !important;
+}
+
+.hero-nav-prev:hover svg,
+.hero-nav-next:hover svg,
+.pdp-nav-prev:hover svg,
+.pdp-nav-next:hover svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Precise SVG sizing and stroke preservation for custom navigation arrows */
+.hero-nav-prev svg,
+.hero-nav-next svg,
+.pdp-nav-prev svg,
+.pdp-nav-next svg {
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2px !important;
+  pointer-events: none !important;
+}
+
+/* Completely suppress all Swiper default navigation font glyphs, pseudoelements, and auto-injected SVGs */
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-button-next:after,
+.swiper-button-prev:after,
+.swiper-navigation-icon {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  font-size: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Swiper Pagination Positioning & Styling */
+.hero-swiper .swiper-pagination {
+  bottom: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  z-index: 20 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 639px) {
+  .hero-swiper .swiper-pagination {
+    bottom: 16px !important;
+    left: 20px !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+  }
+}
+
+/* Editorial elongated active bullet */
+.swiper-pagination-bullet {
+  background: #a3a3a3 !important;
+  opacity: 0.6;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swiper-pagination-bullet-active {
+  background: #121212 !important;
+  width: 28px !important;
+  border-radius: 9999px !important;
+  opacity: 1;
+}
+
+/* Micro-interaction utility classes */
+.hover-reveal-img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .hover-reveal-img {
+  transform: scale(1.04);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Checkbox Styling for Shop Filters */
+.custom-checkbox {
+  appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #d4d4d4;
+  width: 1rem;
+  height: 1rem;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: #121212;
+}
+
+.custom-checkbox:checked {
+  border-color: #121212;
+}
+
+.custom-checkbox:checked::before {
+  transform: scale(1);
+}
+
+/* Stepper connectors */
+.stepper-line {
+  height: 1px;
+  background-color: #eae8e3;
+  flex: 1;
+}
+
+.stepper-line.active {
+  background-color: #121212;
+}
+
+/* Subtle Shake Animation for Size Validation Warning */
+@keyframes pdpShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.shake-anim {
+  animation: pdpShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+

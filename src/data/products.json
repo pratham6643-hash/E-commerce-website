@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "aur-01",
+    "name": "Bespoke Structured Linen Trench",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "outerwear",
+    "price": 3899,
+    "originalPrice": 6499,
+    "discountPercent": 40,
+    "rating": 4.8,
+    "reviewCount": 142,
+    "images": [
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Signature Edit",
+    "description": "Tailored from heavyweight Belgian flax linen, featuring horn-button accents, storm flaps, and a removable waist belt for understated silhouette draping."
+  },
+  {
+    "id": "aur-02",
+    "name": "Relaxed Japanese Twill Workshirt",
+    "brand": "STUDIO MONOLITH",
+    "category": "men",
+    "subcategory": "shirts",
+    "price": 2499,
+    "originalPrice": 4200,
+    "discountPercent": 41,
+    "rating": 4.9,
+    "reviewCount": 218,
+    "images": [
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Atelier Pick",
+    "description": "Woven on vintage shuttle looms using 100% long-staple cotton twill. Double patch pockets and reinforced seams suited for timeless trans-seasonal layering."
+  },
+  {
+    "id": "aur-03",
+    "name": "Pleated Wide-Leg Organic Trousers",
+    "brand": "KAIRO FORM",
+    "category": "women",
+    "subcategory": "bottoms",
+    "price": 2799,
+    "originalPrice": 4999,
+    "discountPercent": 44,
+    "rating": 4.7,
+    "reviewCount": 94,
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "New Season",
+    "description": "High-waisted trousers with tailored front knife pleats, slanted pockets, and a fluid drape engineered from certified organic Lyocell fibers."
+  },
+  {
+    "id": "aur-04",
+    "name": "Minimalist Calfskin City Loafer",
+    "brand": "VELLUM & CO.",
+    "category": "footwear",
+    "subcategory": "shoes",
+    "price": 4299,
+    "originalPrice": 7500,
+    "discountPercent": 43,
+    "rating": 4.9,
+    "reviewCount": 312,
+    "images": [
+      "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Handcrafted",
+    "description": "Artisan-crafted in supple full-grain Italian calfskin with Blake-stitched construction, leather sole inserts, and padded ergonomic footbed."
+  },
+  {
+    "id": "aur-05",
+    "name": "Heavyweight Raw Denim Chore Coat",
+    "brand": "STUDIO MONOLITH",
+    "category": "men",
+    "subcategory": "outerwear",
+    "price": 3499,
+    "originalPrice": 5999,
+    "discountPercent": 42,
+    "rating": 4.6,
+    "reviewCount": 165,
+    "images": [
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Limited Run",
+    "description": "13.5oz unwashed selvedge denim that shapes uniquely to the wearer's daily wear patterns. Triple-needle chain-stitch finish throughout."
+  },
+  {
+    "id": "aur-06",
+    "name": "Sculptural Leather Crescent Tote",
+    "brand": "ATELIER ÉPURE",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 3199,
+    "originalPrice": 5500,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 88,
+    "images": [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Archival",
+    "description": "Smooth semi-vegetable tanned leather shaped in an organic crescent curve. Suede-lined interior with interior zip card pouch and magnetic snap closure."
+  },
+  {
+    "id": "aur-07",
+    "name": "Ribbed Cashmere-Blend Mockneck",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "knitwear",
+    "price": 2899,
+    "originalPrice": 4800,
+    "discountPercent": 40,
+    "rating": 4.7,
+    "reviewCount": 170,
+    "images": [
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Cashmere Blend",
+    "description": "Spun with superfine Mongolian cashmere and Australian extrafine merino wool for ethereal warmth and cloud-soft hand feel."
+  },
+  {
+    "id": "aur-08",
+    "name": "Brushed Acetate Geometric Sunglasses",
+    "brand": "VELLUM & CO.",
+    "category": "accessories",
+    "subcategory": "eyewear",
+    "price": 1699,
+    "originalPrice": 3200,
+    "discountPercent": 47,
+    "rating": 4.6,
+    "reviewCount": 92,
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "Universal"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "UV400 Protected",
+    "description": "Hand-polished Mazzucchelli acetate frame with subtle beveled temple arms and anti-reflective mineral glass green tint lenses."
+  },
+  {
+    "id": "aur-09",
+    "name": "Oversized Mercerized Cotton Tee",
+    "brand": "STUDIO MONOLITH",
+    "category": "men",
+    "subcategory": "t-shirts",
+    "price": 1299,
+    "originalPrice": 2199,
+    "discountPercent": 41,
+    "rating": 4.8,
+    "reviewCount": 115,
+    "images": [
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Essential",
+    "description": "Crafted from 240 GSM double-mercerized Egyptian cotton with a subtle silk-like sheen, dropped shoulders, and ribbed collar binding."
+  },
+  {
+    "id": "aur-10",
+    "name": "Camp-Collar Slub Linen Shirt",
+    "brand": "AURELIA ATELIER",
+    "category": "men",
+    "subcategory": "shirts",
+    "price": 2299,
+    "originalPrice": 3899,
+    "discountPercent": 41,
+    "rating": 4.7,
+    "reviewCount": 84,
+    "images": [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Pure Linen",
+    "description": "Airy washed slub linen with an easy Cuban collar, side seam gussets, and mother-of-pearl buttons suited for Mediterranean coastal heat."
+  },
+  {
+    "id": "aur-11",
+    "name": "Tailored Wool-Blend Gurkha Trousers",
+    "brand": "KAIRO FORM",
+    "category": "men",
+    "subcategory": "bottoms",
+    "price": 2999,
+    "originalPrice": 4999,
+    "discountPercent": 40,
+    "rating": 4.9,
+    "reviewCount": 138,
+    "images": [
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Bespoke Cut",
+    "description": "Double-pleated front with signature crossover Gurkha waistband buckles. Engineered in lightweight tropical wool with deep slant pockets."
+  },
+  {
+    "id": "aur-12",
+    "name": "Tapered Raw Selvedge Denim Jeans",
+    "brand": "STUDIO MONOLITH",
+    "category": "men",
+    "subcategory": "bottoms",
+    "price": 3199,
+    "originalPrice": 5499,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 204,
+    "images": [
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Selvedge ID",
+    "description": "14oz red-line Japanese selvedge denim woven on vintage Toyoda shuttle looms. Mid-rise with relaxed thigh and gradual calf taper."
+  },
+  {
+    "id": "aur-13",
+    "name": "Waffle-Knit Organic Cotton Polo",
+    "brand": "AURELIA ATELIER",
+    "category": "men",
+    "subcategory": "shirts",
+    "price": 1899,
+    "originalPrice": 3199,
+    "discountPercent": 41,
+    "rating": 4.6,
+    "reviewCount": 76,
+    "images": [
+      "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Organic Knit",
+    "description": "Tactile thermal honeycomb knit with Johnny collar and seamless rib cuffs. Naturally breathable organic combed yarn."
+  },
+  {
+    "id": "aur-14",
+    "name": "Structured Canvas Safari Overshirt",
+    "brand": "STUDIO MONOLITH",
+    "category": "men",
+    "subcategory": "outerwear",
+    "price": 3299,
+    "originalPrice": 5699,
+    "discountPercent": 42,
+    "rating": 4.7,
+    "reviewCount": 92,
+    "images": [
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Field Edition",
+    "description": "Heavy duck canvas overshirt equipped with four bellows pockets, reinforced elbow patches, and concealed matte horn buttons."
+  },
+  {
+    "id": "aur-15",
+    "name": "Relaxed Linen-Silk Resort Co-ord",
+    "brand": "ATELIER ÉPURE",
+    "category": "men",
+    "subcategory": "co-ords",
+    "price": 3799,
+    "originalPrice": 6499,
+    "discountPercent": 42,
+    "rating": 4.9,
+    "reviewCount": 118,
+    "images": [
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Resort Set",
+    "description": "Two-piece relaxed lounge set comprising a notched camp shirt and drawstring pull-on trousers spun from Belgian linen and raw tussar silk."
+  },
+  {
+    "id": "aur-16",
+    "name": "Heavyweight Drop-Shoulder Boxy Tee",
+    "brand": "KAIRO FORM",
+    "category": "men",
+    "subcategory": "t-shirts",
+    "price": 1499,
+    "originalPrice": 2499,
+    "discountPercent": 40,
+    "rating": 4.7,
+    "reviewCount": 89,
+    "images": [
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Heavyweight",
+    "description": "280 GSM dry-handle jersey engineered for architectural boxy volume. Retains crisp drape through seasonal cycles."
+  },
+  {
+    "id": "aur-17",
+    "name": "Minimalist Unstructured Wool Blazer",
+    "brand": "AURELIA ATELIER",
+    "category": "men",
+    "subcategory": "outerwear",
+    "price": 4499,
+    "originalPrice": 7999,
+    "discountPercent": 44,
+    "rating": 4.9,
+    "reviewCount": 164,
+    "images": [
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Atelier Tailoring",
+    "description": "Half-canvassed single-breasted blazer in fine Super 120s Italian wool. Soft natural shoulders and patch pockets offer relaxed formality."
+  },
+  {
+    "id": "aur-18",
+    "name": "Asymmetrical Drape Mulberry Silk Dress",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "dresses",
+    "price": 3999,
+    "originalPrice": 6999,
+    "discountPercent": 43,
+    "rating": 4.9,
+    "reviewCount": 182,
+    "images": [
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Mulberry Silk",
+    "description": "Fluid bias-cut gown draped from 22 momme pure mulberry silk with a softly cowl neckline, low scoop back, and puddle hem."
+  },
+  {
+    "id": "aur-19",
+    "name": "Boxy Raw Linen Boatneck Top",
+    "brand": "KAIRO FORM",
+    "category": "women",
+    "subcategory": "tops",
+    "price": 1999,
+    "originalPrice": 3499,
+    "discountPercent": 43,
+    "rating": 4.7,
+    "reviewCount": 98,
+    "images": [
+      "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Organic Flax",
+    "description": "Minimalist wide boatneck silhouette cut from certified organic flax linen with side-split hem and clean French interior seamwork."
+  },
+  {
+    "id": "aur-20",
+    "name": "High-Neck Pintuck Chanderi Kurta",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "kurtas",
+    "price": 2899,
+    "originalPrice": 4999,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 140,
+    "images": [
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Handloom Heritage",
+    "description": "Artisan handwoven Chanderi silk-cotton tunic featuring microscopic front yoke pintucks, mandarin collar, and zari selvage sleeve piping."
+  },
+  {
+    "id": "aur-21",
+    "name": "Belted Column Maxi Skirt",
+    "brand": "ATELIER ÉPURE",
+    "category": "women",
+    "subcategory": "skirts",
+    "price": 2399,
+    "originalPrice": 3999,
+    "discountPercent": 40,
+    "rating": 4.7,
+    "reviewCount": 73,
+    "images": [
+      "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "New Season",
+    "description": "High-rise columnar skirt tailored in weighted linen-viscose with a removable self-fabric buckle belt and generous walking vent."
+  },
+  {
+    "id": "aur-22",
+    "name": "Structured Double-Breasted Wool Blazer",
+    "brand": "STUDIO MONOLITH",
+    "category": "women",
+    "subcategory": "outerwear",
+    "price": 4599,
+    "originalPrice": 7999,
+    "discountPercent": 43,
+    "rating": 4.9,
+    "reviewCount": 210,
+    "images": [
+      "https://images.unsplash.com/photo-1534126511673-b6899657816a?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Power Tailoring",
+    "description": "Sharp shoulder architecture paired with six tortoiseshell buttons in virgin wool gabardine. Cupro lining with interior ticket pocket."
+  },
+  {
+    "id": "aur-23",
+    "name": "Pleated Linen Halter Midi Dress",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "dresses",
+    "price": 3499,
+    "originalPrice": 5999,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 125,
+    "images": [
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Summer Curation",
+    "description": "Architectural high halter neckline leading into radial sunburst accordion pleats. Cut from lightweight enzyme-washed French linen."
+  },
+  {
+    "id": "aur-24",
+    "name": "Cropped Textured Bouclé Jacket",
+    "brand": "KAIRO FORM",
+    "category": "women",
+    "subcategory": "outerwear",
+    "price": 3699,
+    "originalPrice": 6299,
+    "discountPercent": 41,
+    "rating": 4.6,
+    "reviewCount": 82,
+    "images": [
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Textured Bouclé",
+    "description": "Collarless boxy jacket loomed in multi-ply slub cotton bouclé with raw-edge fringe trimming and cast metal button clasps."
+  },
+  {
+    "id": "aur-25",
+    "name": "Fluid Rayon Camp-Collar Blouse",
+    "brand": "ATELIER ÉPURE",
+    "category": "women",
+    "subcategory": "tops",
+    "price": 1799,
+    "originalPrice": 2999,
+    "discountPercent": 40,
+    "rating": 4.7,
+    "reviewCount": 67,
+    "images": [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Silky Rayon",
+    "description": "Relaxed notch-lapel short sleeve top tailored in matte viscose twill with a cool liquid drape and clean tonal mother-of-pearl closures."
+  },
+  {
+    "id": "aur-26",
+    "name": "Architectural Flared Palazzo Pant",
+    "brand": "VELLUM & CO.",
+    "category": "women",
+    "subcategory": "bottoms",
+    "price": 2599,
+    "originalPrice": 4499,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 114,
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Wide Flare",
+    "description": "Exaggerated palazzo trousers crafted from structured tencel-crepe with seamless side zip closure and graceful ground-skimming hem."
+  },
+  {
+    "id": "aur-27",
+    "name": "Tailored Vest & Bermuda Co-ord Set",
+    "brand": "AURELIA ATELIER",
+    "category": "women",
+    "subcategory": "co-ords",
+    "price": 3899,
+    "originalPrice": 6499,
+    "discountPercent": 40,
+    "rating": 4.9,
+    "reviewCount": 156,
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Co-ord Edit",
+    "description": "Sleeveless pointed-hem waistcoat paired with knee-length tailored pleated Bermuda shorts in unbleached natural flax linen."
+  },
+  {
+    "id": "aur-28",
+    "name": "Minimalist Monolithic Leather Sneaker",
+    "brand": "STUDIO MONOLITH",
+    "category": "footwear",
+    "subcategory": "sneakers",
+    "price": 3499,
+    "originalPrice": 5999,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 245,
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Monolithic Cupsole",
+    "description": "Clean-profile court sneaker in white Nappa leather with tonal Margom-style vulcanized rubber cupsole and waxed cotton laces."
+  },
+  {
+    "id": "aur-29",
+    "name": "Vachetta Leather Cross-Strap Slide",
+    "brand": "VELLUM & CO.",
+    "category": "footwear",
+    "subcategory": "sandals",
+    "price": 2299,
+    "originalPrice": 3999,
+    "discountPercent": 43,
+    "rating": 4.7,
+    "reviewCount": 110,
+    "images": [
+      "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Artisanal Slide",
+    "description": "Wide interlocking crossover straps in untreated natural Tuscan vachetta leather that darkens into a rich golden patina over time."
+  },
+  {
+    "id": "aur-30",
+    "name": "Square-Toe Sculptural Block Mule",
+    "brand": "ATELIER ÉPURE",
+    "category": "footwear",
+    "subcategory": "shoes",
+    "price": 3299,
+    "originalPrice": 5699,
+    "discountPercent": 42,
+    "rating": 4.9,
+    "reviewCount": 135,
+    "images": [
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "isFeatured": true,
+    "isTrending": false,
+    "badge": "Sculptural Heel",
+    "description": "Chiseled square-toe mule with a 50mm cylindrical wood block heel. Lined in breathable goatskin with dual-density arch padding."
+  },
+  {
+    "id": "aur-31",
+    "name": "Chelsea Suede Goodyear-Welted Boot",
+    "brand": "STUDIO MONOLITH",
+    "category": "footwear",
+    "subcategory": "boots",
+    "price": 4999,
+    "originalPrice": 8500,
+    "discountPercent": 41,
+    "rating": 4.9,
+    "reviewCount": 190,
+    "images": [
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Goodyear Welted",
+    "description": "Repello weather-treated calf suede upper with elasticated side webbing, woven pull tabs, and durable storm-welted Dainite rubber soles."
+  },
+  {
+    "id": "aur-32",
+    "name": "Handwoven Raffia Pointed Flat",
+    "brand": "AURELIA ATELIER",
+    "category": "footwear",
+    "subcategory": "flats",
+    "price": 2599,
+    "originalPrice": 4499,
+    "discountPercent": 42,
+    "rating": 4.6,
+    "reviewCount": 78,
+    "images": [
+      "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Madagascar Raffia",
+    "description": "Intricately hand-crocheted natural raffia pointed ballerina flat trimmed with buttery lambskin piping and stacked leather heel."
+  },
+  {
+    "id": "aur-33",
+    "name": "Espadrille Derby in Washed Canvas",
+    "brand": "KAIRO FORM",
+    "category": "footwear",
+    "subcategory": "shoes",
+    "price": 2799,
+    "originalPrice": 4799,
+    "discountPercent": 42,
+    "rating": 4.7,
+    "reviewCount": 96,
+    "images": [
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Jute Sole",
+    "description": "Hybrid low-top derby featuring heavy washed garment-dyed canvas upper hand-stitched onto a traditional braided Spanish jute midsole."
+  },
+  {
+    "id": "aur-34",
+    "name": "Grained Calfskin Minimalist Shoulder Bag",
+    "brand": "ATELIER ÉPURE",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 3599,
+    "originalPrice": 6200,
+    "discountPercent": 42,
+    "rating": 4.9,
+    "reviewCount": 162,
+    "images": [
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Grained Calfskin",
+    "description": "Architectural 90s-inspired baguette bag sculpted from scratch-resistant pebbled calfskin with silver-tone palladium hardware."
+  },
+  {
+    "id": "aur-35",
+    "name": "Structured Box Leather Crossbody",
+    "brand": "VELLUM & CO.",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 2999,
+    "originalPrice": 5200,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 105,
+    "images": [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "Hand-Polished",
+    "description": "Rigid box silhouette in smooth glazed saddle leather with adjustable stud strap, accordion interior divider, and magnetic lock."
+  },
+  {
+    "id": "aur-36",
+    "name": "Slim Bifold Vegetable-Tanned Wallet",
+    "brand": "STUDIO MONOLITH",
+    "category": "accessories",
+    "subcategory": "wallets",
+    "price": 1499,
+    "originalPrice": 2499,
+    "discountPercent": 40,
+    "rating": 4.7,
+    "reviewCount": 184,
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "Universal"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Vegetable Tanned",
+    "description": "Ultra-slim 8-card bifold wallet handmade using 1.2mm vegetable-tanned shoulder leather with hand-beveled waxed edges."
+  },
+  {
+    "id": "aur-37",
+    "name": "Saddle Leather Hand-Burnished Belt",
+    "brand": "VELLUM & CO.",
+    "category": "accessories",
+    "subcategory": "belts",
+    "price": 1299,
+    "originalPrice": 2199,
+    "discountPercent": 41,
+    "rating": 4.8,
+    "reviewCount": 97,
+    "images": [
+      "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Full Grain",
+    "description": "32mm full-grain bridle leather belt with solid brushed brass pin buckle. Hand-burnished with natural beeswax."
+  },
+  {
+    "id": "aur-38",
+    "name": "Architectural Ceramic Dial Timepiece",
+    "brand": "AURELIA ATELIER",
+    "category": "accessories",
+    "subcategory": "watches",
+    "price": 4299,
+    "originalPrice": 7500,
+    "discountPercent": 43,
+    "rating": 4.9,
+    "reviewCount": 150,
+    "images": [
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "Universal"
+    ],
+    "isFeatured": true,
+    "isTrending": true,
+    "badge": "Sapphire Crystal",
+    "description": "Bauhaus-proportioned 38mm watch case in matte sandblasted stainless steel with scratch-proof sapphire crystal glass and Swiss quartz movement."
+  },
+  {
+    "id": "aur-39",
+    "name": "Hammered Sterling Silver Cuff Bangle",
+    "brand": "KAIRO FORM",
+    "category": "accessories",
+    "subcategory": "jewellery",
+    "price": 1899,
+    "originalPrice": 3299,
+    "discountPercent": 42,
+    "rating": 4.8,
+    "reviewCount": 112,
+    "images": [
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "Universal"
+    ],
+    "isFeatured": false,
+    "isTrending": true,
+    "badge": "925 Silver",
+    "description": "Hand-forged open cuff bracelet crafted in solid 925 sterling silver with an artisanal organic hammered finish and interior hallmark stamp."
+  },
+  {
+    "id": "aur-40",
+    "name": "Hand-Rolled Mulberry Silk Scarf",
+    "brand": "AURELIA ATELIER",
+    "category": "accessories",
+    "subcategory": "scarves",
+    "price": 1599,
+    "originalPrice": 2699,
+    "discountPercent": 41,
+    "rating": 4.7,
+    "reviewCount": 68,
+    "images": [
+      "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=900&auto=format&fit=crop&q=80"
+    ],
+    "sizes": [
+      "One Size"
+    ],
+    "isFeatured": false,
+    "isTrending": false,
+    "badge": "Hand-Rolled",
+    "description": "70cm x 70cm square scarf printed with subtle architectural grid motifs on 14 momme silk twill, finished with artisanal hand-rolled edges."
+  }
+]

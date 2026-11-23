@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piece Details — AURELIA Atelier</title>
+  <meta name="description" content="Discover exquisite garment craftsmanship and bespoke detailing from AURELIA Atelier." />
+  <meta property="og:title" content="Piece Details — AURELIA Atelier" />
+  <meta property="og:description" content="Bespoke craftsmanship, pure natural textiles, and architectural silhouette details from AURELIA Atelier." />
+  <meta property="og:type" content="product" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="bg-[#faf9f6] text-[#121212] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-[#faf9f6]">
+
+  <!-- Header Anchor -->
+  <div id="app-header" class="min-h-[116px]"></div>
+
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6 sm:py-10">
+
+    <!-- Top Navigation Row: Breadcrumb + Product-to-Product Stepper Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#eae8e3] gap-4 mb-8">
+      
+      <!-- Breadcrumb -->
+      <nav class="text-[10px] tracking-[0.2em] uppercase text-[#737373] flex items-center gap-2" aria-label="Breadcrumb">
+        <a href="/index.html" class="hover:text-[#121212] transition">Home</a>
+        <span>/</span>
+        <a href="/shop.html" class="hover:text-[#121212] transition">The Collection</a>
+        <span>/</span>
+        <span id="pdp-breadcrumb-category" class="text-[#737373] uppercase font-medium">Apparel</span>
+        <span>/</span>
+        <span id="pdp-breadcrumb-name" class="text-[#121212] font-semibold truncate max-w-[200px]">Piece</span>
+      </nav>
+
+      <!-- Product-to-Product Stepper Bar -->
+      <div id="product-nav-stepper" class="flex items-center gap-3 self-end sm:self-auto bg-white border border-[#eae8e3] px-3 py-1.5 shadow-2xs">
+        <button 
+          type="button" 
+          id="prev-product-btn" 
+          class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#121212] hover:text-[#c25e40] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+          title="Previous atelier piece"
+        >
+          <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+          <span class="hidden md:inline">Prev Piece</span>
+        </button>
+
+        <span class="text-[#eae8e3] font-light">|</span>
+
+        <span id="product-position-counter" class="text-[10px] font-bold text-[#737373] tracking-wider uppercase">
+          Piece 1 of 8
+        </span>
+
+        <span class="text-[#eae8e3] font-light">|</span>
+
+        <button 
+          type="button" 
+          id="next-product-btn" 
+          class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#121212] hover:text-[#c25e40] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+          title="Next atelier piece"
+        >
+          <span class="hidden md:inline">Next Piece</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Main PDP Content Grid: Left Gallery + Right Sticky Buy Box -->
+    <div id="pdp-main-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start transition-opacity duration-300">
+
+      <!-- Left Column: Gallery Experience -->
+      <div class="lg:col-span-7 flex flex-col gap-4">
+        
+        <!-- Desktop 2-Column Photo Grid (Visible on Desktop lg+) -->
+        <div id="pdp-desktop-grid" class="hidden lg:grid grid-cols-2 gap-4">
+          <!-- Dynamically populated via product.js -->
+        </div>
+
+        <!-- Mobile & Tablet Swiper Gallery (Visible on < lg) -->
+        <div class="block lg:hidden relative w-full bg-[#f5f4ef] border border-[#eae8e3] overflow-hidden group">
+          <div class="swiper pdp-swiper w-full aspect-[3/4]">
+            <div class="swiper-wrapper" id="swiper-wrapper">
+              <!-- Dynamically populated via product.js -->
+            </div>
+            
+            <!-- Mobile Custom Navigation Arrows -->
+            <button 
+              type="button" 
+              class="pdp-nav-prev absolute top-1/2 left-3 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 text-[#121212] border border-[#eae8e3] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:bg-[#121212] hover:text-white hover:border-[#121212]"
+              aria-label="Previous product image"
+            >
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+            <button 
+              type="button" 
+              class="pdp-nav-next absolute top-1/2 right-3 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 text-[#121212] border border-[#eae8e3] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:bg-[#121212] hover:text-white hover:border-[#121212]"
+              aria-label="Next product image"
+            >
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Mobile Image Counter Badge -->
+          <div id="mobile-image-counter" class="absolute bottom-3 right-3 bg-[#121212]/80 backdrop-blur-xs text-white text-[10px] font-semibold px-2.5 py-1 z-20 pointer-events-none">
+            1 / 2
+          </div>
+        </div>
+
+        <!-- Synchronized Thumbnails (Visible on both Desktop & Mobile when multiple images exist) -->
+        <div 
+          id="pdp-thumbnails" 
+          class="flex items-center gap-3 overflow-x-auto no-scrollbar py-2"
+          role="tablist"
+          aria-label="Product image thumbnails"
+        >
+          <!-- Dynamically populated via product.js -->
+        </div>
+
+        <p class="text-[11px] text-[#737373] text-center hidden lg:block">
+          Click any image to open full-resolution PhotoSwipe inspection lightbox.
+        </p>
+
+      </div>
+
+      <!-- Right Column: Sticky Product Specifications & Buy Box -->
+      <div 
+        id="pdp-buy-box" 
+        class="lg:col-span-5 space-y-5 lg:sticky lg:top-24 bg-[#faf9f6]"
+      >
+        
+        <!-- Brand & Title Block -->
+        <div>
+          <span id="pdp-brand" class="text-[11px] uppercase tracking-[0.24em] text-[#737373] font-bold block mb-1.5">
+            AURELIA ATELIER
+          </span>
+          <h1 id="pdp-title" class="font-editorial text-2xl sm:text-3xl lg:text-4xl text-[#121212] font-normal leading-snug">
+            Piece Name
+          </h1>
+          
+          <!-- Rating Box -->
+          <div class="flex items-center gap-3 mt-2.5">
+            <div class="inline-flex items-center gap-1.5 bg-white border border-[#eae8e3] px-2.5 py-1 text-xs">
+              <span id="pdp-rating" class="font-bold text-[#121212]">4.8</span>
+              <i data-lucide="star" class="w-3 h-3 fill-amber-400 text-amber-400"></i>
+              <span class="text-[#a3a3a3]">|</span>
+              <span id="pdp-reviews" class="text-[#737373] font-medium">142 Reviews</span>
+            </div>
+            <span class="text-[11px] text-[#121212] uppercase tracking-wider font-semibold">Atelier Certified</span>
+          </div>
+        </div>
+
+        <!-- Valuation & Pricing Block -->
+        <div class="border-y border-[#eae8e3] py-3.5 space-y-1">
+          <div class="flex items-baseline gap-3 flex-wrap">
+            <span id="pdp-price" class="text-2xl sm:text-3xl font-bold text-[#121212]">₹0</span>
+            <span id="pdp-original-price" class="text-sm text-[#a3a3a3] line-through font-light">₹0</span>
+            <span id="pdp-discount" class="text-xs font-bold text-[#c25e40] uppercase tracking-wider">(40% OFF)</span>
+          </div>
+          <p class="text-[11px] text-[#737373]">Inclusive of all applicable duties & taxes.</p>
+        </div>
+
+        <!-- Sizing Selector with Size Chart Trigger -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#121212]">
+              Select Proportion / Size <span class="text-[#c25e40]">*</span>
+            </span>
+            <button 
+              type="button" 
+              id="open-size-chart-btn" 
+              class="text-xs text-[#121212] hover:text-[#c25e40] font-semibold underline cursor-pointer"
+            >
+              Size Chart & Measurements
+            </button>
+          </div>
+
+          <div id="size-selector" class="flex flex-wrap gap-2.5" role="radiogroup" aria-label="Available sizes">
+            <!-- Dynamically populated via product.js -->
+          </div>
+          <div id="size-warning" class="hidden text-xs text-[#c25e40] font-semibold flex items-center gap-1.5 pt-0.5">
+            <i data-lucide="x" class="w-3.5 h-3.5 text-[#c25e40]"></i>
+            <span>Please select an available size before adding to your bag.</span>
+          </div>
+        </div>
+
+        <!-- Action CTAs: Add to Bag & Wishlist -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-1">
+          <button 
+            type="button"
+            id="add-to-bag-btn" 
+            class="flex-1 bg-[#121212] hover:bg-black text-[#faf9f6] text-xs font-bold tracking-[0.18em] uppercase py-4 px-6 transition shadow-md flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.99]"
+          >
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>Add to Bag</span>
+          </button>
+
+          <button 
+            type="button"
+            id="pdp-wishlist-btn" 
+            class="flex-1 sm:flex-none border border-[#eae8e3] hover:border-[#121212] text-[#121212] text-xs font-bold tracking-[0.18em] uppercase py-4 px-6 transition flex items-center justify-center gap-2 cursor-pointer bg-white active:scale-[0.99]"
+          >
+            <i data-lucide="heart" class="w-4 h-4"></i>
+            <span id="pdp-wishlist-label">Save</span>
+          </button>
+        </div>
+
+        <!-- Indian Pincode Delivery Estimator Box (Demo) -->
+        <div class="bg-white border border-[#eae8e3] p-4 sm:p-5 space-y-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="truck" class="w-4 h-4 text-[#121212]"></i>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212]">Delivery Estimator (Demo)</span>
+          </div>
+
+          <form id="pincode-form" class="flex gap-2 items-center">
+            <input 
+              type="text" 
+              id="pincode-input" 
+              maxlength="6" 
+              placeholder="Enter 6-digit postal code (e.g. 560001)" 
+              class="w-full text-xs bg-[#faf9f6] border border-[#eae8e3] px-3.5 h-11 text-[#121212] focus:outline-none focus:border-[#121212] font-mono leading-none"
+            />
+            <button 
+              type="submit" 
+              id="check-pincode-btn" 
+              class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-5 h-11 hover:bg-black transition cursor-pointer shrink-0 flex items-center justify-center leading-none"
+            >
+              Check
+            </button>
+          </form>
+
+          <div id="pincode-result" class="hidden text-xs space-y-1.5 pt-1">
+            <div class="flex items-center gap-2 text-emerald-700 font-medium">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+              <span id="pincode-estimate-text">Estimated Delivery by Thursday, 28 Nov</span>
+            </div>
+            <ul class="text-[11px] text-[#737373] list-disc list-inside space-y-0.5">
+              <li>Complimentary standard dispatch on orders above ₹1,999</li>
+              <li>Cash on Delivery available for eligible regions (Demo)</li>
+              <li>Doorstep exchange within 14 days</li>
+            </ul>
+          </div>
+          <p class="text-[10px] text-[#a3a3a3] italic">
+            * Frontend demonstration only. Courier timelines and COD eligibility are simulated.
+          </p>
+        </div>
+
+        <!-- Specifications & Composition Accordion -->
+        <div class="border-t border-[#eae8e3] pt-5 space-y-4 text-xs">
+          <div>
+            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212] mb-1.5">Description & Design</h3>
+            <p id="pdp-description" class="text-xs text-[#525252] leading-relaxed font-light"></p>
+          </div>
+
+          <div class="bg-white border border-[#eae8e3] p-4 divide-y divide-[#eae8e3] text-xs">
+            <div class="py-2 flex justify-between">
+              <span class="text-[#737373]">Fabrication</span>
+              <span id="spec-fabric" class="font-medium text-[#121212]">100% Belgian Linen / Japanese Twill</span>
+            </div>
+            <div class="py-2 flex justify-between">
+              <span class="text-[#737373]">Silhouette</span>
+              <span id="spec-fit" class="font-medium text-[#121212]">Relaxed Architectural Fit</span>
+            </div>
+            <div class="py-2 flex justify-between">
+              <span class="text-[#737373]">Care Guidelines</span>
+              <span class="font-medium text-[#121212]">Dry Clean Only / Gentle Hand Wash</span>
+            </div>
+            <div class="py-2 flex justify-between">
+              <span class="text-[#737373]">Country of Provenance</span>
+              <span class="font-medium text-[#121212]">India &bull; Atelier Crafted</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Similar Pieces / Complete The Look Carousel -->
+    <section class="mt-20 pt-12 border-t border-[#eae8e3]">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.24em] text-[#737373] font-bold block mb-1">Curation Suggestions</span>
+          <h2 class="font-editorial text-2xl sm:text-3xl text-[#121212]">You May Also Admire</h2>
+        </div>
+        <a href="/shop.html" class="text-xs font-semibold uppercase tracking-wider text-[#121212] hover:text-[#c25e40] underline">
+          View All Pieces &rarr;
+        </a>
+      </div>
+
+      <div id="similar-products-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Dynamically populated via product.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Size Chart Modal -->
+  <div id="size-chart-modal" class="fixed inset-0 z-50 hidden">
+    <div id="size-chart-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white shadow-2xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
+        <div>
+          <h3 class="font-editorial text-xl text-[#121212]">Size & Measurement Matrix</h3>
+          <p id="size-chart-unit-label" class="text-xs text-[#737373]">Standard garment measurements in inches (Demo Guide)</p>
+        </div>
+        <button type="button" id="close-size-chart-btn" class="p-1 text-[#737373] hover:text-[#121212]" aria-label="Close size chart">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Measurement Unit Switcher (Inches / CM) -->
+      <div class="flex items-center justify-between">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-[#737373]">Unit of Measurement</span>
+        <div class="inline-flex border border-[#eae8e3] p-0.5 bg-[#faf9f6]" role="tablist">
+          <button type="button" id="unit-inches-btn" class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-[#121212] text-white transition cursor-pointer" role="tab" aria-selected="true">
+            Inches
+          </button>
+          <button type="button" id="unit-cm-btn" class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#737373] hover:text-[#121212] transition cursor-pointer" role="tab" aria-selected="false">
+            CM
+          </button>
+        </div>
+      </div>
+
+      <table class="w-full text-xs text-left border border-[#eae8e3]">
+        <thead class="bg-[#faf9f6] text-[10px] font-bold uppercase tracking-wider text-[#121212] border-b border-[#eae8e3]">
+          <tr>
+            <th class="p-2.5">Size</th>
+            <th class="p-2.5">Chest</th>
+            <th class="p-2.5">Shoulder</th>
+            <th class="p-2.5">Length</th>
+            <th class="p-2.5">Waist</th>
+          </tr>
+        </thead>
+        <tbody id="size-chart-inches" class="divide-y divide-[#eae8e3] text-[#525252]">
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">XS</td>
+            <td class="p-2.5">36&quot;</td>
+            <td class="p-2.5">16.5&quot;</td>
+            <td class="p-2.5">28&quot;</td>
+            <td class="p-2.5">30&quot;</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">S</td>
+            <td class="p-2.5">38&quot;</td>
+            <td class="p-2.5">17.0&quot;</td>
+            <td class="p-2.5">28.5&quot;</td>
+            <td class="p-2.5">32&quot;</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">M</td>
+            <td class="p-2.5">40&quot;</td>
+            <td class="p-2.5">17.5&quot;</td>
+            <td class="p-2.5">29&quot;</td>
+            <td class="p-2.5">34&quot;</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">L</td>
+            <td class="p-2.5">42&quot;</td>
+            <td class="p-2.5">18.0&quot;</td>
+            <td class="p-2.5">29.5&quot;</td>
+            <td class="p-2.5">36&quot;</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">XL</td>
+            <td class="p-2.5">44&quot;</td>
+            <td class="p-2.5">18.5&quot;</td>
+            <td class="p-2.5">30&quot;</td>
+            <td class="p-2.5">38&quot;</td>
+          </tr>
+        </tbody>
+        <tbody id="size-chart-cm" class="divide-y divide-[#eae8e3] text-[#525252] hidden">
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">XS</td>
+            <td class="p-2.5">91 cm</td>
+            <td class="p-2.5">42 cm</td>
+            <td class="p-2.5">71 cm</td>
+            <td class="p-2.5">76 cm</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">S</td>
+            <td class="p-2.5">97 cm</td>
+            <td class="p-2.5">43 cm</td>
+            <td class="p-2.5">72 cm</td>
+            <td class="p-2.5">81 cm</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">M</td>
+            <td class="p-2.5">102 cm</td>
+            <td class="p-2.5">44 cm</td>
+            <td class="p-2.5">74 cm</td>
+            <td class="p-2.5">86 cm</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">L</td>
+            <td class="p-2.5">107 cm</td>
+            <td class="p-2.5">46 cm</td>
+            <td class="p-2.5">75 cm</td>
+            <td class="p-2.5">91 cm</td>
+          </tr>
+          <tr>
+            <td class="p-2.5 font-bold text-[#121212]">XL</td>
+            <td class="p-2.5">112 cm</td>
+            <td class="p-2.5">47 cm</td>
+            <td class="p-2.5">76 cm</td>
+            <td class="p-2.5">97 cm</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="bg-[#faf9f6] p-4 border border-[#eae8e3] text-xs text-[#737373] space-y-1">
+        <p class="font-medium text-[#121212]">Atelier Fit Advice:</p>
+        <p>Our outerwear and shirting are tailored for a relaxed, drape-focused silhouette. If you prefer a closer bespoke fit, consider sizing down.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Anchor -->
+  <div id="app-footer"></div>
+
+  <script type="module" src="/src/js/pages/product.js"></script>
+</body>
+</html>

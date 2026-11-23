@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURELIA Atelier — Modern Architectural Fashion</title>
+  <meta name="description" content="AURELIA Atelier — Modern architectural fashion house celebrating tactile natural fibers, bespoke cuts, and timeless silhouettes." />
+  <meta property="og:title" content="AURELIA Atelier — Modern Architectural Fashion" />
+  <meta property="og:description" content="Discover modern architectural fashion celebrating tactile natural fibers and timeless silhouettes." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="bg-[#faf9f6] text-[#121212] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-[#faf9f6]">
+
+  <!-- Header Anchor -->
+  <div id="app-header" class="min-h-[116px]"></div>
+
+  <main class="flex-1 w-full space-y-16 sm:space-y-24">
+
+    <!-- Department Quick-Navigation Strip (Myntra-style E-Commerce Discovery, Atelier-Styled) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+      <div class="flex items-center justify-between gap-3 overflow-x-auto no-scrollbar py-2">
+        
+        <a href="/shop.html?category=men" class="flex flex-col items-center gap-2 group shrink-0 text-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#eae8e3] group-hover:border-[#121212] transition-all p-0.5 bg-white shadow-2xs">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&auto=format&fit=crop&q=80" alt="Men's Wardrobe" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform" />
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#121212] group-hover:text-[#c25e40] transition">Men's Wardrobe</span>
+        </a>
+
+        <a href="/shop.html?category=women" class="flex flex-col items-center gap-2 group shrink-0 text-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#eae8e3] group-hover:border-[#121212] transition-all p-0.5 bg-white shadow-2xs">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=300&auto=format&fit=crop&q=80" alt="Women's Atelier" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform" />
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#121212] group-hover:text-[#c25e40] transition">Women's Edit</span>
+        </a>
+
+        <a href="/shop.html?category=footwear" class="flex flex-col items-center gap-2 group shrink-0 text-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#eae8e3] group-hover:border-[#121212] transition-all p-0.5 bg-white shadow-2xs">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80" alt="Artisanal Footwear" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform" />
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#121212] group-hover:text-[#c25e40] transition">Artisanal Shoes</span>
+        </a>
+
+        <a href="/shop.html?category=accessories" class="flex flex-col items-center gap-2 group shrink-0 text-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#eae8e3] group-hover:border-[#121212] transition-all p-0.5 bg-white shadow-2xs">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&auto=format&fit=crop&q=80" alt="Leather Objects" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform" />
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#121212] group-hover:text-[#c25e40] transition">Leather Objects</span>
+        </a>
+
+        <a href="/shop.html" class="flex flex-col items-center gap-2 group shrink-0 text-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#121212] bg-[#121212] text-white flex items-center justify-center p-0.5 shadow-2xs">
+            <span class="font-editorial text-sm font-semibold">ALL</span>
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#121212] group-hover:text-[#c25e40] transition">All Pieces</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Editorial Campaign Hero Slider (Using Swiper) -->
+    <section class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="swiper hero-swiper w-full h-[510px] sm:h-auto sm:aspect-[16/9] md:aspect-[21/9] sm:max-h-[580px] bg-[#121212] overflow-hidden shadow-sm">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1: Seasonal Signature -->
+          <div class="swiper-slide relative">
+            <img 
+              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&auto=format&fit=crop&q=85" 
+              alt="Atelier Autumn Winter Campaign" 
+              class="w-full h-full object-cover object-[70%_center] sm:object-center opacity-75 sm:opacity-80" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/92 via-black/65 to-black/30 sm:bg-gradient-to-r sm:from-black/85 sm:via-black/45 sm:to-transparent flex flex-col justify-end sm:justify-center px-5 pb-14 pt-6 sm:py-0 sm:px-16 lg:px-20 text-white max-w-2xl">
+              <span class="text-[10px] tracking-[0.25em] uppercase font-sans font-bold text-[#eae8e3] mb-2 sm:mb-3 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#c25e40]"></span>
+                Autumn / Winter 26 &bull; Vol. 04
+              </span>
+              <h1 class="font-editorial text-[34px] sm:text-5xl md:text-6xl font-normal leading-[1.12] sm:leading-[1.08] mb-3 sm:mb-5 tracking-tight max-w-[290px] xs:max-w-xs sm:max-w-none">
+                Architectural Form & Tactile Draping
+              </h1>
+              <p class="text-[14px] sm:text-sm text-[#d4d4d4] font-light max-w-[310px] sm:max-w-md mb-5 sm:mb-8 leading-relaxed">
+                Quiet luxury crafted with pure Belgian flax linen, unhurried tailoring, and timeless structural silhouettes.
+              </p>
+              <div class="flex flex-col xs:flex-row sm:flex-row items-stretch xs:items-center sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+                <a href="/shop.html" class="inline-flex items-center justify-center gap-2.5 bg-white text-[#121212] text-xs font-bold tracking-[0.16em] uppercase px-6 py-3.5 hover:bg-[#faf9f6] transition shadow-md text-center">
+                  <span>Shop Collection</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="/shop.html?category=women" class="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-[0.16em] uppercase px-5 py-3 border border-white/60 text-white hover:border-white hover:bg-white/10 transition text-center">
+                  Women's Edit
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Footwear & Leather Workshop -->
+          <div class="swiper-slide relative">
+            <img 
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1800&auto=format&fit=crop&q=85" 
+              alt="Artisanal Workshop Footwear" 
+              class="w-full h-full object-cover object-[70%_center] sm:object-center opacity-75 sm:opacity-80" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/92 via-black/65 to-black/30 sm:bg-gradient-to-r sm:from-black/85 sm:via-black/45 sm:to-transparent flex flex-col justify-end sm:justify-center px-5 pb-14 pt-6 sm:py-0 sm:px-16 lg:px-20 text-white max-w-2xl">
+              <span class="text-[10px] tracking-[0.25em] uppercase font-sans font-bold text-[#eae8e3] mb-2 sm:mb-3 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#c25e40]"></span>
+                Artisanal Footwear &bull; Atelier Release
+              </span>
+              <h2 class="font-editorial text-[34px] sm:text-5xl md:text-6xl font-normal leading-[1.12] sm:leading-[1.08] mb-3 sm:mb-5 tracking-tight max-w-[290px] xs:max-w-xs sm:max-w-none">
+                Blake-Stitched Leather Loafers
+              </h2>
+              <p class="text-[14px] sm:text-sm text-[#d4d4d4] font-light max-w-[310px] sm:max-w-md mb-5 sm:mb-8 leading-relaxed">
+                Handcrafted footwear shaped by master artisans using vegetable-tanned hides and ergonomic footbeds.
+              </p>
+              <div class="flex flex-col xs:flex-row sm:flex-row items-stretch xs:items-center sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+                <a href="/shop.html?category=footwear" class="inline-flex items-center justify-center gap-2.5 bg-white text-[#121212] text-xs font-bold tracking-[0.16em] uppercase px-6 py-3.5 hover:bg-[#faf9f6] transition shadow-md text-center">
+                  <span>View Footwear</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="/shop.html?category=men" class="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-[0.16em] uppercase px-5 py-3 border border-white/60 text-white hover:border-white hover:bg-white/10 transition text-center">
+                  Men's Tailoring
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <!-- Swiper Navigation Arrows & Dots -->
+        <div class="swiper-pagination"></div>
+        <button 
+          type="button" 
+          class="hero-nav-prev absolute bottom-3.5 right-14 sm:bottom-auto sm:right-auto sm:top-1/2 sm:left-4 -translate-y-0 sm:-translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 sm:bg-white/95 text-[#121212] border border-[#eae8e3] shadow-md flex items-center justify-center transition-all cursor-pointer hover:bg-[#121212] hover:text-white hover:border-[#121212]" 
+          aria-label="Previous slide"
+        >
+          <i data-lucide="chevron-left" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+        </button>
+        <button 
+          type="button" 
+          class="hero-nav-next absolute bottom-3.5 right-3.5 sm:bottom-auto sm:top-1/2 sm:right-4 -translate-y-0 sm:-translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 sm:bg-white/95 text-[#121212] border border-[#eae8e3] shadow-md flex items-center justify-center transition-all cursor-pointer hover:bg-[#121212] hover:text-white hover:border-[#121212]" 
+          aria-label="Next slide"
+        >
+          <i data-lucide="chevron-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Seasonal Privilege / Offer Ribbon -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#faf9f6] border border-[#121212] p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-10 h-10 rounded-full bg-[#121212] text-white flex items-center justify-center shrink-0">
+            <i data-lucide="sparkles" class="w-5 h-5 text-amber-300"></i>
+          </div>
+          <div>
+            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#121212]">
+              Atelier Privilege Code: <span class="font-mono bg-white border border-[#eae8e3] px-2 py-0.5 ml-1">ATELIER2026</span>
+            </h3>
+            <p class="text-[11px] text-[#737373] mt-0.5">
+              Enjoy 10% complimentary courtesy + free express dispatch on orders above ₹1,999.
+            </p>
+          </div>
+        </div>
+
+        <a href="/shop.html" class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-black transition shrink-0">
+          Redeem In Bag &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- Trending Now / The Season's Signatures -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-5 border-b border-[#eae8e3] gap-4">
+        <div>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-[#737373] font-bold block mb-1">Curated Demand</span>
+          <h2 class="font-editorial text-2xl sm:text-4xl text-[#121212]">The Season’s Signatures</h2>
+        </div>
+        <a href="/shop.html" class="text-xs tracking-[0.14em] uppercase text-[#121212] hover:text-[#c25e40] font-bold transition inline-flex items-center gap-1.5">
+          <span>View Entire Curation</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div id="trending-products" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Dynamically populated via home.js -->
+      </div>
+    </section>
+
+    <!-- Category Spotlight Banners (Myntra-Style Curated Category Tiles) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 text-center max-w-xl mx-auto space-y-1.5">
+        <span class="text-[10px] tracking-[0.25em] uppercase text-[#737373] font-bold">Category Highlights</span>
+        <h2 class="font-editorial text-2xl sm:text-3xl text-[#121212]">Curated Atelier Editions</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/shop.html?category=women" class="group relative aspect-[4/5] bg-[#f5f4ef] overflow-hidden border border-[#eae8e3]">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&auto=format&fit=crop&q=80" alt="Women Atelier" class="w-full h-full object-cover hover-reveal-img" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#eae8e3] font-semibold">Volume 01</span>
+            <h3 class="font-editorial text-xl sm:text-2xl mt-1">Bespoke Outerwear & Coats</h3>
+            <span class="text-xs font-semibold text-white/90 underline mt-2 inline-flex items-center gap-1">Explore Women's &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/shop.html?category=men" class="group relative aspect-[4/5] bg-[#f5f4ef] overflow-hidden border border-[#eae8e3]">
+          <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=900&auto=format&fit=crop&q=80" alt="Men Tailoring" class="w-full h-full object-cover hover-reveal-img" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#eae8e3] font-semibold">Volume 02</span>
+            <h3 class="font-editorial text-xl sm:text-2xl mt-1">Shuttle-Loom Twill & Shirts</h3>
+            <span class="text-xs font-semibold text-white/90 underline mt-2 inline-flex items-center gap-1">Explore Men's &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/shop.html?category=footwear" class="group relative aspect-[4/5] bg-[#f5f4ef] overflow-hidden border border-[#eae8e3]">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&auto=format&fit=crop&q=80" alt="Footwear Workshop" class="w-full h-full object-cover hover-reveal-img" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#eae8e3] font-semibold">Volume 03</span>
+            <h3 class="font-editorial text-xl sm:text-2xl mt-1">Hand-Finished Leather Shoes</h3>
+            <span class="text-xs font-semibold text-white/90 underline mt-2 inline-flex items-center gap-1">Explore Footwear &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Best of Atelier / Featured Curations -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-5 border-b border-[#eae8e3] gap-4">
+        <div>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-[#737373] font-bold block mb-1">Archival Releases</span>
+          <h2 class="font-editorial text-2xl sm:text-4xl text-[#121212]">Best of Atelier</h2>
+        </div>
+        <a href="/shop.html" class="text-xs tracking-[0.14em] uppercase text-[#121212] hover:text-[#c25e40] font-bold transition inline-flex items-center gap-1.5">
+          <span>Explore All Pieces</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div id="featured-products" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Dynamically populated via home.js -->
+      </div>
+    </section>
+
+    <!-- Editorial Manifesto Split Banner -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#121212] text-white grid grid-cols-1 md:grid-cols-2 items-center overflow-hidden border border-black shadow-lg">
+        
+        <div class="p-8 sm:p-14 lg:p-16 space-y-6">
+          <span class="text-[10px] tracking-[0.25em] uppercase font-mono text-[#a3a3a3] block">The Atelier Manifesto</span>
+          <h2 class="font-editorial text-2xl sm:text-4xl leading-tight">
+            Designed with Architectural Restraint.
+          </h2>
+          <p class="text-xs sm:text-sm text-[#a3a3a3] font-light leading-relaxed">
+            We reject the disposable cycles of fast retail. Each garment begins with natural fiber origins — raw Belgian flax, organic Japanese twills, and vegetable-tanned hides.
+          </p>
+          <div class="pt-2">
+            <a href="/shop.html" class="inline-block bg-white text-[#121212] text-xs font-bold tracking-[0.16em] uppercase px-8 py-3.5 hover:bg-[#faf9f6] transition">
+              Discover The Craft &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="h-80 md:h-full relative overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1000&auto=format&fit=crop&q=80" 
+            alt="Craftsmanship and Fabric" 
+            class="w-full h-full object-cover" 
+          />
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Anchor -->
+  <div id="app-footer"></div>
+
+  <script type="module" src="/src/js/pages/home.js"></script>
+</body>
+</html>
