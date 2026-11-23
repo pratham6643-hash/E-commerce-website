@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checkout & Dispatch — AURELIA Atelier</title>
-  <meta name="description" content="Secure dispatch and express concierge checkout for your AURELIA Atelier order." />
-  <meta property="og:title" content="Checkout & Dispatch — AURELIA Atelier" />
-  <meta property="og:description" content="Complete your order with express carbon-neutral delivery and secure demo settlement at AURELIA Atelier." />
+  <title>Checkout — AURELIA Atelier</title>
+  <meta name="description" content="Secure checkout for your AURELIA Atelier order." />
+  <meta property="og:title" content="Checkout — AURELIA Atelier" />
+  <meta property="og:description" content="Complete your order with secure demo payment at AURELIA Atelier." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/css/style.css" />
 </head>
-<body class="bg-[#faf9f6] text-[#121212] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-[#faf9f6]">
+<body class="bg-[#F8F7F4] text-[#282c3f] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-white">
 
   <!-- Header Anchor -->
   <div id="app-header" class="min-h-[116px]"></div>
 
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-10">
+  <main class="flex-1 max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full py-6 sm:py-8">
 
     <!-- 3-Step Checkout Progress Indicator -->
     <div class="max-w-xl mx-auto mb-10">
@@ -215,7 +215,7 @@
         
         <div class="bg-white border border-[#eae8e3] p-5 sm:p-6 space-y-5 shadow-2xs">
           <div class="flex items-center justify-between border-b border-[#eae8e3] pb-3">
-            <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212]">Order Allocation Summary</h2>
+            <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212]">Order Summary</h2>
             <a href="/cart.html" class="text-xs text-[#121212] underline hover:text-[#c25e40] font-semibold">Modify Bag</a>
           </div>
 
@@ -227,22 +227,22 @@
           <!-- Detailed Price Breakdown -->
           <div class="space-y-2.5 text-xs pt-3 border-t border-[#eae8e3]">
             <div class="flex justify-between text-[#737373]">
-              <span>Subtotal Value</span>
+              <span>Subtotal</span>
               <span id="checkout-subtotal" class="font-medium text-[#121212]">₹0</span>
             </div>
 
             <div class="flex justify-between text-emerald-700">
-              <span>Savings & Courtesy</span>
+              <span>Savings on MRP</span>
               <span id="checkout-discount" class="font-medium">- ₹0</span>
             </div>
 
             <div class="flex justify-between text-[#737373]">
-              <span>Courier Delivery</span>
-              <span id="checkout-shipping" class="text-emerald-700 font-bold">COMPLIMENTARY</span>
+              <span>Delivery Fee</span>
+              <span id="checkout-shipping" class="text-emerald-700 font-bold">FREE</span>
             </div>
 
             <div class="pt-3 border-t border-[#eae8e3] flex justify-between items-baseline text-base font-bold text-[#121212]">
-              <span class="font-editorial text-lg">Total Valuation</span>
+              <span class="font-editorial text-lg">Total Amount</span>
               <span id="checkout-total" class="text-xl">₹0</span>
             </div>
           </div>
@@ -252,15 +252,15 @@
             id="place-order-btn" 
             class="block w-full text-center bg-[#121212] hover:bg-black text-[#faf9f6] text-xs font-bold tracking-[0.18em] uppercase py-4 transition shadow-md cursor-pointer active:scale-[0.99]"
           >
-            Confirm & Place Demo Order
+            Place Order (Demo)
           </button>
 
           <div class="text-center text-[10px] text-[#737373] space-y-1">
             <div class="flex items-center justify-center gap-1.5 font-medium text-[#121212]">
               <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-              <span>Atelier Guarantee &bull; 14-Day Free Exchange</span>
+              <span>100% Secure &bull; 14-Day Easy Returns</span>
             </div>
-            <p>Order confirmation dossier will be generated upon completion.</p>
+            <p>Demo order confirmation will be generated upon completion.</p>
           </div>
         </div>
 
@@ -278,10 +278,10 @@
       </div>
       
       <div>
-        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#737373] block mb-1">Allocation Confirmed</span>
+        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#737373] block mb-1">Order Placed</span>
         <h3 class="font-editorial text-3xl font-normal text-[#121212]">Thank You For Your Order</h3>
         <p class="text-xs text-[#525252] leading-relaxed mt-2 max-w-sm mx-auto">
-          Your bespoke piece has been reserved in our studio archive. A demo dispatch notification has been generated.
+          Your order has been placed successfully. A demo dispatch notification has been generated.
         </p>
       </div>
 
@@ -291,18 +291,18 @@
           <strong id="order-id-display" class="font-mono font-bold text-[#121212]">AUR-2026-89412</strong>
         </div>
         <div class="flex justify-between">
-          <span class="text-[#737373]">Dispatch Destination:</span>
+          <span class="text-[#737373]">Delivery Destination:</span>
           <span class="font-medium text-[#121212]">Indiranagar, Bengaluru</span>
         </div>
         <div class="flex justify-between">
           <span class="text-[#737373]">Estimated Delivery:</span>
-          <span class="font-medium text-emerald-800">Within 3 Atelier Days</span>
+          <span class="font-medium text-emerald-800">Within 3 Business Days</span>
         </div>
       </div>
 
       <div class="pt-2">
         <a href="/shop.html" class="inline-block bg-[#121212] text-white text-xs font-bold tracking-[0.18em] uppercase px-8 py-3.5 hover:bg-black transition shadow-sm">
-          Return to The Collection
+          Continue Shopping
         </a>
       </div>
     </div>

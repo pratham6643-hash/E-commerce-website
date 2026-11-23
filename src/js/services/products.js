@@ -1,5 +1,5 @@
 // Centralized Product Service
-import productsData from '../../data/products.json';
+import productsData from '../../data/products.json' with { type: 'json' };
 
 class ProductService {
   constructor() {
@@ -190,6 +190,8 @@ class ProductService {
         result.sort((a, b) => (b.rating || 0) - (a.rating || 0));
       } else if (sort === 'discount') {
         result.sort((a, b) => (b.discountPercent || 0) - (a.discountPercent || 0));
+      } else if (sort === 'newest') {
+        result.sort((a, b) => b.id.localeCompare(a.id));
       } else if (sort === 'recommended' || sort === 'popular') {
         // Stable order favoring featured and trending items
         result.sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));

@@ -185,142 +185,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Render Active Filter Chips
+  // Render Active Filter Chips (Permanently removed to eliminate vertical layout jumps)
   function renderActiveChips() {
-    if (!activeChipsContainer || !activeFiltersBar) return;
-
-    const chips = [];
-
-    // Search query chip
-    if (filterState.query) {
-      chips.push({
-        type: 'query',
-        label: `"${filterState.query}"`,
-        value: filterState.query,
-      });
+    if (activeFiltersBar) {
+      activeFiltersBar.remove();
     }
 
-    // Category chips
-    filterState.categories.forEach((cat) => {
-      chips.push({
-        type: 'category',
-        label: cat.toUpperCase(),
-        value: cat,
-      });
-    });
+    // Calculate active filter count for mobile badge
+    let activeFilterCount = 0;
+    if (filterState.query) activeFilterCount++;
+    activeFilterCount += filterState.categories.length;
+    activeFilterCount += filterState.brands.length;
+    activeFilterCount += filterState.sizes.length;
+    activeFilterCount += filterState.priceBuckets.length;
+    if (filterState.maxPrice < 6000) activeFilterCount++;
+    if (filterState.minDiscount > 0) activeFilterCount++;
+    if (filterState.minRating > 0) activeFilterCount++;
 
-    // Brand chips
-    filterState.brands.forEach((brand) => {
-      chips.push({
-        type: 'brand',
-        label: brand,
-        value: brand,
-      });
-    });
-
-    // Size chips
-    filterState.sizes.forEach((size) => {
-      chips.push({
-        type: 'size',
-        label: `Size: ${size}`,
-        value: size,
-      });
-    });
-
-    // Price bucket chips
-    filterState.priceBuckets.forEach((bucket) => {
-      const labels = {
-        'under-2500': 'Under ₹2,500',
-        '2500-3500': '₹2,500 - ₹3,500',
-        'above-3500': 'Above ₹3,500',
-      };
-      chips.push({
-        type: 'priceBucket',
-        label: labels[bucket] || bucket,
-        value: bucket,
-      });
-    });
-
-    // Max price slider if changed from default 6000
-    if (filterState.maxPrice < 6000) {
-      chips.push({
-        type: 'maxPrice',
-        label: `Up to ${formatCurrency(filterState.maxPrice)}`,
-        value: filterState.maxPrice,
-      });
+    if (mobileFilterBadge) {
+      if (activeFilterCount > 0) {
+        mobileFilterBadge.classList.remove('hidden');
+      } else {
+        mobileFilterBadge.classList.add('hidden');
+      }
     }
-
-    // Discount chip
-    if (filterState.minDiscount > 0) {
-      chips.push({
-        type: 'discount',
-        label: `${filterState.minDiscount}%+ Off`,
-        value: filterState.minDiscount,
-      });
-    }
-
-    // Rating chip
-    if (filterState.minRating > 0) {
-      chips.push({
-        type: 'rating',
-        label: `${filterState.minRating}★+`,
-        value: filterState.minRating,
-      });
-    }
-
-    if (chips.length === 0) {
-      activeFiltersBar.classList.add('hidden');
-      if (mobileFilterBadge) mobileFilterBadge.classList.add('hidden');
-      return;
-    }
-
-    activeFiltersBar.classList.remove('hidden');
-    if (mobileFilterBadge) mobileFilterBadge.classList.remove('hidden');
-
-    activeChipsContainer.innerHTML = chips.map((c) => `
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white border border-[#eae8e3] text-xs font-medium text-[#121212] shadow-2xs">
-        <span>${c.label}</span>
-        <button 
-          type="button" 
-          data-chip-type="${c.type}" 
-          data-chip-value="${c.value}" 
-          class="remove-chip-btn text-[#a3a3a3] hover:text-[#121212] cursor-pointer"
-          aria-label="Remove filter ${c.label}"
-        >
-          <i data-lucide="x" class="w-3 h-3"></i>
-        </button>
-      </span>
-    `).join('');
-
-    // Bind chip remove events
-    activeChipsContainer.querySelectorAll('.remove-chip-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const type = btn.dataset.chipType;
-        const val = btn.dataset.chipValue;
-
-        if (type === 'query') filterState.query = '';
-        else if (type === 'category') {
-          filterState.categories = filterState.categories.filter((c) => c !== val);
-        } else if (type === 'brand') {
-          filterState.brands = filterState.brands.filter((b) => b !== val);
-        } else if (type === 'size') {
-          filterState.sizes = filterState.sizes.filter((s) => s !== val);
-        } else if (type === 'priceBucket') {
-          filterState.priceBuckets = filterState.priceBuckets.filter((b) => b !== val);
-        } else if (type === 'maxPrice') {
-          filterState.maxPrice = 6000;
-        } else if (type === 'discount') {
-          filterState.minDiscount = 0;
-        } else if (type === 'rating') {
-          filterState.minRating = 0;
-        }
-
-        syncInputsWithState();
-        renderProducts();
-      });
-    });
-
-    createIcons({ icons });
   }
 
   // Render Filtered Products
@@ -395,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         filterState.categories = filterState.categories.filter((c) => c !== val);
       }
+      syncInputsWithState();
       renderProducts();
     });
   });
@@ -408,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         filterState.brands = filterState.brands.filter((b) => b !== val);
       }
+      syncInputsWithState();
       renderProducts();
     });
   });
@@ -421,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         filterState.sizes = filterState.sizes.filter((s) => s !== val);
       }
+      syncInputsWithState();
       renderProducts();
     });
   });

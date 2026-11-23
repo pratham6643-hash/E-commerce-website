@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = store.getWishlist();
 
     if (wishlistCountEl) {
-      wishlistCountEl.textContent = `${items.length} ${items.length === 1 ? 'Piece' : 'Pieces'}`;
+      wishlistCountEl.textContent = `${items.length} ${items.length === 1 ? 'Item' : 'Items'}`;
     }
 
     if (items.length === 0) {
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 type="button"
                 data-remove-id="${item.id}" 
                 class="btn-remove-wishlist absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 backdrop-blur-xs text-[#737373] hover:text-[#121212] hover:bg-white transition shadow-xs z-10 flex items-center justify-center cursor-pointer" 
-                title="Remove from Curation"
-                aria-label="Remove ${item.name} from curation"
+                title="Remove from Wishlist"
+                aria-label="Remove ${item.name} from wishlist"
               >
                 <i data-lucide="x" class="w-3.5 h-3.5"></i>
               </button>

@@ -28,7 +28,6 @@ function initHome() {
       prevEl: '.hero-nav-prev',
       addIcons: false,
     },
-    // Enhanced touch interactions for mobile
     grabCursor: true,
     touchRatio: 1,
     threshold: 8,
@@ -37,34 +36,42 @@ function initHome() {
     touchAngle: 45,
   });
 
-  // Render Trending Products (first 4 items)
-  const trendingContainer = document.getElementById('trending-products');
-  const allTrending = productService.getTrending();
-  const trendingItems = allTrending.slice(0, 4);
-  const trendingIds = new Set(trendingItems.map((p) => p.id));
+  const allProducts = productService.getAll();
 
-  if (trendingContainer) {
-    trendingContainer.innerHTML = trendingItems.map(createProductCard).join('');
-    bindProductCardEvents(trendingContainer, trendingItems);
+  // Helper to populate and bind product container
+  function renderSection(containerId, items) {
+    const container = document.getElementById(containerId);
+    if (container && items && items.length > 0) {
+      container.innerHTML = items.map(createProductCard).join('');
+      bindProductCardEvents(container, items);
+    }
   }
 
-  // Render Featured Curations (distinct items not in Trending to avoid duplication)
-  const featuredContainer = document.getElementById('featured-products');
-  let featuredItems = productService.getFeatured().filter((p) => !trendingIds.has(p.id));
-  if (featuredItems.length < 4) {
-    const remaining = productService.getAll().filter((p) => !trendingIds.has(p.id) && !featuredItems.some(f => f.id === p.id));
-    featuredItems = [...featuredItems, ...remaining].slice(0, 4);
-  }
+  // 1. Trending in Men (5 items on desktop)
+  const menItems = allProducts.filter((p) => p.category && p.category.toLowerCase() === 'men').slice(0, 5);
+  renderSection('trending-men', menItems);
 
-  if (featuredContainer) {
-    featuredContainer.innerHTML = featuredItems.map(createProductCard).join('');
-    bindProductCardEvents(featuredContainer, featuredItems);
-  }
+  // 2. Trending in Women (5 items on desktop)
+  const womenItems = allProducts.filter((p) => p.category && p.category.toLowerCase() === 'women').slice(0, 5);
+  renderSection('trending-women', womenItems);
 
-  // Subtle Editorial Animations (Respects prefers-reduced-motion)
-  if (!prefersReducedMotion()) {
-    initHomeAnimations();
-  }
+  // 3. Best Sellers (5 items on desktop)
+  const bestSellers = [...allProducts].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 5);
+  renderSection('best-sellers', bestSellers);
+
+  // 4. New Season Arrivals (5 items on desktop)
+  const newArrivals = [...allProducts].sort((a, b) => b.id.localeCompare(a.id)).slice(0, 5);
+  renderSection('new-arrivals', newArrivals);
+
+  // 5. Footwear & Accessories (5 items on desktop)
+  const footwearItems = allProducts.filter((p) => p.category && (p.category.toLowerCase() === 'footwear' || p.category.toLowerCase() === 'accessories')).slice(0, 5);
+  renderSection('trending-footwear', footwearItems);
+
+  // Backwards compatibility for existing legacy hooks
+  const legacyTrending = productService.getTrending().slice(0, 4);
+  renderSection('trending-products', legacyTrending);
+  const legacyFeatured = productService.getFeatured().slice(0, 4);
+  renderSection('featured-products', legacyFeatured);
 
   // Refresh ScrollTrigger after DOM rendering
   ScrollTrigger.refresh();
@@ -76,46 +83,4 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initHome);
 } else {
   initHome();
-}
-
-function initHomeAnimations() {
-  // Stagger reveal for Trending Product cards
-  const trendingGrid = document.getElementById('trending-products');
-  if (trendingGrid && trendingGrid.children.length > 0) {
-    gsap.fromTo(trendingGrid.children,
-      { y: 25, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: trendingGrid,
-          start: 'top 85%',
-          once: true,
-        },
-      }
-    );
-  }
-
-  // Stagger reveal for Featured Curations
-  const featuredGrid = document.getElementById('featured-products');
-  if (featuredGrid && featuredGrid.children.length > 0) {
-    gsap.fromTo(featuredGrid.children,
-      { y: 25, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: featuredGrid,
-          start: 'top 85%',
-          once: true,
-        },
-      }
-    );
-  }
 }

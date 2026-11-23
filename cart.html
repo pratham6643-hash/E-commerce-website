@@ -13,12 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/css/style.css" />
 </head>
-<body class="bg-[#faf9f6] text-[#121212] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-[#faf9f6]">
+<body class="bg-[#F8F7F4] text-[#282c3f] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-white">
 
   <!-- Header Anchor -->
   <div id="app-header" class="min-h-[116px]"></div>
 
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-10">
+  <main class="flex-1 max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full py-6 sm:py-8">
 
     <!-- 3-Step Checkout Progress Indicator -->
     <div class="max-w-xl mx-auto mb-10">
@@ -48,12 +48,12 @@
       <div>
         <h2 class="font-editorial text-2xl sm:text-3xl text-[#121212]">Your Bag is Empty</h2>
         <p class="text-xs text-[#737373] font-light leading-relaxed mt-2 max-w-sm mx-auto">
-          There are currently no pieces reserved in your atelier allocation. Explore our newest tailored collection.
+          There are no items in your shopping bag. Explore our collection and add your favorite styles.
         </p>
       </div>
       <div>
         <a href="/shop.html" class="inline-block bg-[#121212] text-white text-xs font-bold tracking-[0.18em] uppercase px-8 py-3.5 hover:bg-black transition shadow-sm">
-          Explore The Collection
+          Continue Shopping
         </a>
       </div>
     </div>
@@ -68,7 +68,7 @@
         <div class="bg-white border border-[#eae8e3] p-4 flex items-center justify-between gap-3 text-xs">
           <div class="flex items-center gap-2.5">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-700 shrink-0"></i>
-            <span class="text-[#525252]">Pieces reserved for this active session. Complete order to guarantee dispatch.</span>
+            <span class="text-[#525252]">Items in your bag are reserved for this session. Complete checkout to guarantee delivery.</span>
           </div>
           <span id="cart-items-counter" class="font-bold text-[#121212] whitespace-nowrap">0 Items</span>
         </div>
@@ -86,7 +86,7 @@
         <!-- Coupons / Privilege Offers Card -->
         <div class="bg-white border border-[#eae8e3] p-5 sm:p-6 space-y-4 shadow-2xs">
           <div class="flex items-center justify-between border-b border-[#eae8e3] pb-3">
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212]">Privilege Code & Offers</span>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#121212]">Apply Coupon</span>
             <i data-lucide="sparkles" class="w-4 h-4 text-[#c25e40]"></i>
           </div>
 
@@ -95,7 +95,7 @@
             <input 
               type="text" 
               id="coupon-input" 
-              placeholder="Enter privilege code" 
+              placeholder="Enter coupon code" 
               class="w-full text-xs uppercase bg-[#faf9f6] border border-[#eae8e3] px-3.5 py-2.5 text-[#121212] focus:outline-none focus:border-[#121212] font-mono"
             />
             <button 
@@ -120,28 +120,28 @@
 
           <!-- Clickable Coupon Suggestions -->
           <div class="space-y-2 pt-2">
-            <span class="text-[10px] uppercase tracking-wider text-[#737373] font-semibold block">Available Atelier Privileges:</span>
+            <span class="text-[10px] uppercase tracking-wider text-[#737373] font-semibold block">Available Coupons:</span>
             
             <div class="border border-dashed border-[#eae8e3] p-3 hover:border-[#121212] transition cursor-pointer bg-[#faf9f6] flex items-center justify-between coupon-chip" data-code="ATELIER2026">
               <div>
                 <div class="flex items-center gap-2">
                   <span class="font-mono font-bold text-xs text-[#121212] bg-white border border-[#eae8e3] px-1.5 py-0.5">ATELIER2026</span>
-                  <span class="text-[10px] font-bold text-[#c25e40]">10% OFF + FREE SHIPPING</span>
+                  <span class="text-[10px] font-bold text-[#c25e40]">10% OFF + FREE DELIVERY</span>
                 </div>
-                <p class="text-[11px] text-[#737373] mt-1">Complimentary express shipping and 10% privilege discount.</p>
+                <p class="text-[11px] text-[#737373] mt-1">Get 10% off and free delivery on your order.</p>
               </div>
-              <button type="button" class="text-xs font-bold uppercase tracking-wider text-[#121212] hover:text-[#c25e40]">Tap to Apply</button>
+              <button type="button" class="text-xs font-bold uppercase tracking-wider text-[#121212] hover:text-[#c25e40]">Apply</button>
             </div>
 
             <div class="border border-dashed border-[#eae8e3] p-3 hover:border-[#121212] transition cursor-pointer bg-[#faf9f6] flex items-center justify-between coupon-chip" data-code="AURELIA10">
               <div>
                 <div class="flex items-center gap-2">
                   <span class="font-mono font-bold text-xs text-[#121212] bg-white border border-[#eae8e3] px-1.5 py-0.5">AURELIA10</span>
-                  <span class="text-[10px] font-bold text-[#121212]">₹300 COURTESY</span>
+                  <span class="text-[10px] font-bold text-[#121212]">FLAT ₹300 OFF</span>
                 </div>
-                <p class="text-[11px] text-[#737373] mt-1">Flat ₹300 allocation courtesy on boutique orders.</p>
+                <p class="text-[11px] text-[#737373] mt-1">Flat ₹300 off on your fashion purchase.</p>
               </div>
-              <button type="button" class="text-xs font-bold uppercase tracking-wider text-[#121212] hover:text-[#c25e40]">Tap to Apply</button>
+              <button type="button" class="text-xs font-bold uppercase tracking-wider text-[#121212] hover:text-[#c25e40]">Apply</button>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@
           
           <div class="space-y-3 text-xs">
             <div class="flex justify-between text-[#737373]">
-              <span>Total MRP Value</span>
+              <span>Total MRP</span>
               <span id="cart-original-total" class="text-[#121212] font-medium">₹0</span>
             </div>
 
@@ -164,18 +164,18 @@
             </div>
 
             <div class="flex justify-between text-emerald-700">
-              <span>Coupon Privilege</span>
+              <span>Coupon Discount</span>
               <span id="cart-coupon-discount" class="font-medium">- ₹0</span>
             </div>
 
             <div class="flex justify-between text-[#737373]">
-              <span>Subtotal Value</span>
+              <span>Subtotal</span>
               <span id="cart-subtotal" class="text-[#121212] font-medium">₹0</span>
             </div>
 
             <div class="flex justify-between text-[#737373]">
-              <span>Delivery & Handling</span>
-              <span id="cart-shipping" class="text-emerald-700 font-bold">COMPLIMENTARY</span>
+              <span>Delivery Fee</span>
+              <span id="cart-shipping" class="text-emerald-700 font-bold">FREE</span>
             </div>
 
             <div class="pt-4 border-t border-[#eae8e3] flex justify-between items-baseline text-base font-bold text-[#121212]">
@@ -188,12 +188,12 @@
             href="/checkout.html" 
             class="block w-full text-center bg-[#121212] hover:bg-black text-[#faf9f6] text-xs font-bold tracking-[0.18em] uppercase py-4 transition shadow-md cursor-pointer active:scale-[0.99]"
           >
-            Place Order &bull; Proceed
+            Place Order
           </a>
 
           <div class="pt-2 text-center text-[10px] text-[#737373] flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#121212]"></i>
-            <span>Safe & Encrypted Checkout &bull; 14-Day Returns</span>
+            <span>100% Safe & Secure Checkout &bull; Easy Returns</span>
           </div>
         </div>
 

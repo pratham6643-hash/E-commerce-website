@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartEmpty) cartEmpty.classList.add('hidden');
 
     const totalCount = items.reduce((sum, item) => sum + item.quantity, 0);
-    const countText = `${totalCount} ${totalCount === 1 ? 'Piece' : 'Pieces'}`;
+    const countText = `${totalCount} ${totalCount === 1 ? 'Item' : 'Items'}`;
     if (itemsCounter) itemsCounter.textContent = countText;
     if (summaryCount) summaryCount.textContent = countText;
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     data-remove-id="${item.id}" 
                     data-size="${item.selectedSize}" 
                     class="btn-remove text-[#a3a3a3] hover:text-red-600 transition p-1 cursor-pointer" 
-                    title="Remove piece from bag"
+                    title="Remove item from bag"
                   >
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                   </button>

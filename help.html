@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Help Center — AURELIA Atelier</title>
+  <meta name="description" content="AURELIA Atelier Customer Help Center. Track, return, exchange orders and browse FAQs." />
+  <meta property="og:title" content="Customer Help Center — AURELIA Atelier" />
+  <meta property="og:description" content="We are here to help you. Order tracking, size exchanges, refunds, and customer support." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="bg-[#F8F7F4] text-[#282c3f] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-white">
+
+  <!-- Header Anchor -->
+  <div id="app-header" class="min-h-[116px]"></div>
+
+  <main class="flex-1 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
+
+    <!-- Page Heading -->
+    <div class="border-b border-[#eaeaec] pb-6 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <nav class="text-[11px] font-semibold text-[#94969f] mb-1.5" aria-label="Breadcrumb">
+          <a href="/index.html" class="hover:text-[#121212] transition">Home</a> / 
+          <span class="text-[#282c3f] font-bold">Help Center</span>
+        </nav>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-[#282c3f] tracking-tight">HELP CENTER</h1>
+        <p class="text-xs sm:text-sm text-[#737373] mt-1 font-light">We are here to help you</p>
+      </div>
+      <a href="/index.html" class="text-xs font-bold uppercase tracking-wider text-[#121212] hover:text-[#c25e40] underline self-start sm:self-auto">
+        &larr; Back to Home
+      </a>
+    </div>
+
+    <!-- Top Quick Action Strip: Track, Cancel, Return/Exchange -->
+    <section class="bg-white border border-[#eae8e3] p-5 sm:p-7 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5 shadow-2xs">
+      <div class="space-y-1">
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c25e40] block">Quick Assistance</span>
+        <h2 class="text-base sm:text-lg font-bold text-[#121212] tracking-tight">
+          TRACK, CANCEL, RETURN/EXCHANGE
+        </h2>
+        <p class="text-xs text-[#525252] font-light max-w-xl leading-relaxed">
+          Need immediate updates on an ongoing delivery or looking to initiate a 14-day doorstep size exchange? Access your active order dossier directly.
+        </p>
+      </div>
+
+      <button 
+        type="button" 
+        id="help-orders-cta-btn" 
+        class="bg-[#121212] hover:bg-black text-white text-xs font-bold tracking-[0.16em] uppercase py-3.5 px-7 transition shadow-sm cursor-pointer shrink-0 active:scale-[0.99]"
+      >
+        MY ORDERS
+      </button>
+    </section>
+
+    <!-- Main Help Center Grid: Left Query Nav + Right Content Area -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+      <!-- Left-Side Query Category Navigation -->
+      <aside class="lg:col-span-4 bg-white border border-[#eaeaec] p-4 sm:p-5 shadow-2xs space-y-2 lg:sticky lg:top-28">
+        <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#737373] px-3 pb-2 border-b border-[#eaeaec]">
+          Query Categories
+        </h3>
+
+        <nav class="space-y-1" role="tablist" aria-label="Help Query Categories">
+          <button 
+            type="button" 
+            class="help-category-btn active flex items-center justify-between w-full text-left px-3 py-3 text-xs font-semibold rounded-xs transition cursor-pointer"
+            data-category="orders"
+            role="tab"
+            aria-selected="true"
+          >
+            <span>Order Related Queries</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#737373]"></i>
+          </button>
+
+          <button 
+            type="button" 
+            class="help-category-btn flex items-center justify-between w-full text-left px-3 py-3 text-xs font-semibold rounded-xs transition cursor-pointer"
+            data-category="non-orders"
+            role="tab"
+            aria-selected="false"
+          >
+            <span>Non-order Related Issues</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#737373]"></i>
+          </button>
+
+          <button 
+            type="button" 
+            class="help-category-btn flex items-center justify-between w-full text-left px-3 py-3 text-xs font-semibold rounded-xs transition cursor-pointer"
+            data-category="recent"
+            role="tab"
+            aria-selected="false"
+          >
+            <span>Recent Issues</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#737373]"></i>
+          </button>
+
+          <button 
+            type="button" 
+            class="help-category-btn flex items-center justify-between w-full text-left px-3 py-3 text-xs font-semibold rounded-xs transition cursor-pointer"
+            data-category="faqs"
+            role="tab"
+            aria-selected="false"
+          >
+            <span>Frequently Asked Questions</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#737373]"></i>
+          </button>
+        </nav>
+
+        <!-- Emergency Support Strip -->
+        <div class="pt-4 border-t border-[#eaeaec] text-xs text-[#737373] space-y-2 px-3">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#121212] block">Direct Contact</span>
+          <p class="text-[11px] leading-relaxed">
+            Support Desk: <strong class="text-[#121212]">care@aurelia.com</strong><br />
+            Helpline: <strong class="text-[#121212]">1800-202-6000</strong> (Toll Free)<br />
+            Hours: Mon &ndash; Sat, 9 AM &ndash; 8 PM IST
+          </p>
+        </div>
+      </aside>
+
+      <!-- Right-Side Main Content Area -->
+      <section class="lg:col-span-8 space-y-8">
+        
+        <!-- Category Title & Dynamic Topic Accordions -->
+        <div class="bg-white border border-[#eaeaec] p-6 sm:p-8 shadow-2xs space-y-6">
+          <div class="border-b border-[#eaeaec] pb-4 flex items-center justify-between">
+            <h2 id="category-title" class="text-base sm:text-lg font-bold text-[#121212] tracking-tight">
+              Order Related Queries
+            </h2>
+            <span class="text-[10px] uppercase font-bold text-[#737373] tracking-wider">
+              Help Articles
+            </span>
+          </div>
+
+          <!-- Dynamic Accordion Container -->
+          <div id="faq-accordion-container" class="divide-y divide-[#eaeaec]">
+            <!-- Dynamically populated via help.js -->
+          </div>
+        </div>
+
+        <!-- Contact Support & Query Submission Form (Frontend Demo) -->
+        <div class="bg-white border border-[#eae8e3] p-6 sm:p-8 shadow-2xs space-y-5">
+          <div class="border-b border-[#eaeaec] pb-3">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c25e40] block mb-1">Still Need Help?</span>
+            <h3 class="text-base font-bold text-[#121212]">Send a Message to Support</h3>
+            <p class="text-xs text-[#737373] font-light mt-0.5">
+              Submit your query below. Our concierge team responds within 4 business hours. (Frontend Demo)
+            </p>
+          </div>
+
+          <form id="help-ticket-form" class="space-y-4 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="ticket-name" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Your Name *</label>
+                <input type="text" id="ticket-name" value="Arjun Singhania" required class="w-full bg-white border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div>
+                <label for="ticket-email" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Email Address *</label>
+                <input type="email" id="ticket-email" value="member@aurelia.com" required class="w-full bg-white border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+            </div>
+
+            <div>
+              <label for="ticket-topic" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Issue Category *</label>
+              <select id="ticket-topic" class="w-full bg-white border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]">
+                <option value="delivery">Delivery Status & Courier Tracking</option>
+                <option value="exchange">Size Exchange / Return Request</option>
+                <option value="payment">Payment & Refund Query</option>
+                <option value="general">Product Details & Sizing Advice</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="ticket-message" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Message Description *</label>
+              <textarea id="ticket-message" rows="3" required placeholder="Describe your query in detail..." class="w-full bg-white border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]"></textarea>
+            </div>
+
+            <div>
+              <button 
+                type="submit" 
+                class="bg-[#121212] hover:bg-black text-white text-xs font-bold tracking-[0.16em] uppercase py-3 px-8 transition shadow-sm cursor-pointer"
+              >
+                Submit Query
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Anchor -->
+  <div id="app-footer"></div>
+
+  <script type="module" src="/src/js/pages/help.js"></script>
+</body>
+</html>

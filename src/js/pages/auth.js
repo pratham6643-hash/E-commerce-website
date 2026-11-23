@@ -1,4 +1,5 @@
 import { initLayout } from '../components/layout.js';
+import { authService } from '../services/auth.js';
 import { toast } from '../components/toast.js';
 import { createIcons, Eye, EyeOff, ShieldCheck, CheckCircle2, User, ArrowRight } from 'lucide';
 
@@ -7,7 +8,19 @@ const icons = { Eye, EyeOff, ShieldCheck, CheckCircle2, User, ArrowRight };
 document.addEventListener('DOMContentLoaded', () => {
   initLayout('auth');
 
-  // Login Form Demo
+  // Read redirect destination
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectTarget = urlParams.get('redirect') || '/account.html';
+
+  // Preserve redirect parameter on switch links
+  if (urlParams.has('redirect')) {
+    const signupLink = document.getElementById('link-to-signup');
+    if (signupLink) signupLink.href = `/signup.html?redirect=${encodeURIComponent(redirectTarget)}`;
+    const loginLink = document.getElementById('link-to-login');
+    if (loginLink) loginLink.href = `/login.html?redirect=${encodeURIComponent(redirectTarget)}`;
+  }
+
+  // Login Form
   const loginForm = document.getElementById('login-form');
   const loginEmail = document.getElementById('login-email');
   const loginPassword = document.getElementById('login-password');
@@ -38,18 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const pass = loginPassword ? loginPassword.value.trim() : '';
 
       if (!email || !pass) {
-        toast.show('Please provide both client identifier and passcode');
+        toast.show('Please provide both email address and password');
         return;
       }
 
-      toast.success(`Welcome to AURELIA Atelier! Signed in as ${email}`);
+      const userName = email.toLowerCase().includes('aarav') ? 'Aarav Mehta' : 'Arjun Singhania';
+      authService.login({
+        email: email,
+        name: userName,
+        phone: '9876543210',
+      });
+
+      toast.success(`Welcome to AURELIA! Signed in as ${email}`);
       setTimeout(() => {
-        window.location.href = '/shop.html';
-      }, 900);
+        window.location.href = redirectTarget;
+      }, 700);
     });
   }
 
-  // Signup Form Demo
+  // Signup Form
   const signupForm = document.getElementById('signup-form');
   const signupName = document.getElementById('signup-name');
   const signupEmail = document.getElementById('signup-email');
@@ -87,10 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      authService.login({
+        name: name,
+        email: email,
+        phone: '9876543210',
+      });
+
       toast.success(`Atelier membership registered for ${name}!`);
       setTimeout(() => {
-        window.location.href = '/shop.html';
-      }, 900);
+        window.location.href = redirectTarget;
+      }, 700);
     });
   }
 

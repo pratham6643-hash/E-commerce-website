@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account — AURELIA Atelier</title>
+  <meta name="description" content="Manage your AURELIA Atelier account, orders, saved addresses, wishlist, and profile details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="bg-[#F8F7F4] text-[#282c3f] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#121212] selection:text-white">
+
+  <!-- Header Anchor -->
+  <div id="app-header" class="min-h-[116px]"></div>
+
+  <main class="flex-1 max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full py-6 sm:py-8 pb-24 md:pb-12">
+    
+    <!-- Breadcrumb & Top User Banner -->
+    <div class="mb-6">
+      <nav class="text-[11px] font-semibold text-[#94969f] mb-3 flex items-center gap-1.5" aria-label="Breadcrumb">
+        <a href="/index.html" class="hover:text-[#121212] transition">Home</a>
+        <span>/</span>
+        <a href="/account.html" class="hover:text-[#121212] transition">My Account</a>
+        <span>/</span>
+        <span id="account-breadcrumb-tab" class="text-[#282c3f] font-bold">Overview</span>
+      </nav>
+
+      <!-- Account Greeting Banner -->
+      <div class="bg-white border border-[#eae8e3] p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#121212] text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-xs" id="account-avatar-initial">
+            A
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 class="text-lg sm:text-xl font-bold text-[#121212]" id="account-header-name">Arjun Singhania</h1>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-[#faf9f6] border border-[#eae8e3] text-[#c25e40] rounded-xs">
+                Atelier Privilege Member
+              </span>
+            </div>
+            <p class="text-xs text-[#737373] mt-0.5" id="account-header-email">member@aurelia.com</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button 
+            type="button" 
+            id="account-header-logout-btn" 
+            class="text-xs font-bold uppercase tracking-wider px-4 py-2 border border-[#eae8e3] hover:border-[#121212] text-[#121212] hover:bg-[#121212] hover:text-white transition cursor-pointer"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Account Navigation Pills (Horizontal Scrolling) -->
+    <div class="md:hidden mb-6 overflow-x-auto no-scrollbar flex items-center gap-2 pb-2">
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="overview">
+        Overview
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="orders">
+        Orders & Returns
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="profile">
+        Profile Details
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="addresses">
+        Saved Addresses
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="wishlist">
+        Wishlist
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="coupons">
+        Coupons
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="payments">
+        Saved Payments
+      </button>
+      <button type="button" class="account-nav-btn whitespace-nowrap text-xs font-bold px-3 py-2 border border-[#eae8e3] bg-white text-[#121212] rounded-xs shadow-2xs" data-tab="giftcards">
+        Gift Cards
+      </button>
+    </div>
+
+    <!-- Main Two-Column Layout -->
+    <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
+      
+      <!-- Left Desktop Sidebar Navigation -->
+      <aside class="hidden md:block w-64 shrink-0 bg-white border border-[#eae8e3] p-5 shadow-2xs sticky top-28 space-y-6">
+        
+        <!-- Section 1: MY ACCOUNT -->
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94969f] block mb-2 px-3">
+            My Account
+          </span>
+          <ul class="space-y-1 text-xs">
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="overview"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Overview</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[#94969f]"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 2: ORDERS -->
+        <div class="pt-4 border-t border-[#eae8e3]">
+          <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94969f] block mb-2 px-3">
+            Orders
+          </span>
+          <ul class="space-y-1 text-xs">
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="orders"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="package" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Orders & Returns</span>
+                </span>
+                <span id="sidebar-order-count-badge" class="text-[10px] font-bold px-1.5 py-0.2 bg-[#f5f5f6] text-[#121212] rounded-xs">1</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 3: CREDITS -->
+        <div class="pt-4 border-t border-[#eae8e3]">
+          <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94969f] block mb-2 px-3">
+            Credits
+          </span>
+          <ul class="space-y-1 text-xs">
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="coupons"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="tag" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Coupons</span>
+                </span>
+                <span class="text-[10px] font-bold text-[#c25e40]">2 Offers</span>
+              </button>
+            </li>
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="giftcards"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="gift" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Gift Cards</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 4: ACCOUNT -->
+        <div class="pt-4 border-t border-[#eae8e3]">
+          <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94969f] block mb-2 px-3">
+            Account
+          </span>
+          <ul class="space-y-1 text-xs">
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="profile"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="user" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Profile Details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="addresses"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Saved Addresses</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="payments"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="credit-card" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Saved Payments</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button 
+                type="button" 
+                class="account-nav-btn w-full text-left px-3 py-2 font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center justify-between rounded-xs transition cursor-pointer"
+                data-tab="wishlist"
+              >
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="heart" class="w-4 h-4 text-[#737373]"></i>
+                  <span>Wishlist</span>
+                </span>
+                <span id="sidebar-wishlist-count-badge" class="text-[10px] font-bold px-1.5 py-0.2 bg-[#f5f5f6] text-[#121212] rounded-xs">0</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 5: SUPPORT & LOGOUT -->
+        <div class="pt-4 border-t border-[#eae8e3] space-y-2">
+          <a 
+            href="/help.html" 
+            class="w-full text-left px-3 py-2 text-xs font-semibold text-[#535766] hover:text-[#121212] hover:bg-[#faf9f6] flex items-center gap-2.5 rounded-xs transition"
+          >
+            <i data-lucide="help-circle" class="w-4 h-4 text-[#737373]"></i>
+            <span>Contact Us / Help Center</span>
+          </a>
+
+          <button 
+            type="button" 
+            id="sidebar-logout-btn" 
+            class="w-full text-left px-3 py-2 text-xs font-bold text-red-600 hover:text-red-800 hover:bg-red-50/50 flex items-center gap-2.5 rounded-xs transition cursor-pointer"
+          >
+            <i data-lucide="log-out" class="w-4 h-4 text-red-600"></i>
+            <span>Log Out</span>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Right Dynamic Content Panel -->
+      <section class="flex-1 min-w-0 w-full">
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="panel-overview" class="account-panel space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs">
+            <h2 class="text-base sm:text-lg font-bold text-[#121212] mb-1">Account Summary</h2>
+            <p class="text-xs text-[#737373]">Manage your active orders, wishlist curations, and delivery settings.</p>
+
+            <!-- Quick Counts Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+              <div class="bg-[#faf9f6] border border-[#eae8e3] p-4 text-center cursor-pointer hover:border-[#121212] transition" onclick="window.accountSwitchTab('orders')">
+                <span class="text-2xl font-bold text-[#121212] block" id="overview-orders-count">1</span>
+                <span class="text-[11px] font-semibold text-[#737373] uppercase tracking-wider mt-1 block">Orders</span>
+              </div>
+              <div class="bg-[#faf9f6] border border-[#eae8e3] p-4 text-center cursor-pointer hover:border-[#121212] transition" onclick="window.accountSwitchTab('wishlist')">
+                <span class="text-2xl font-bold text-[#121212] block" id="overview-wishlist-count">0</span>
+                <span class="text-[11px] font-semibold text-[#737373] uppercase tracking-wider mt-1 block">Wishlist</span>
+              </div>
+              <div class="bg-[#faf9f6] border border-[#eae8e3] p-4 text-center cursor-pointer hover:border-[#121212] transition" onclick="window.accountSwitchTab('addresses')">
+                <span class="text-2xl font-bold text-[#121212] block" id="overview-addresses-count">1</span>
+                <span class="text-[11px] font-semibold text-[#737373] uppercase tracking-wider mt-1 block">Addresses</span>
+              </div>
+              <div class="bg-[#faf9f6] border border-[#eae8e3] p-4 text-center cursor-pointer hover:border-[#121212] transition" onclick="window.accountSwitchTab('coupons')">
+                <span class="text-2xl font-bold text-[#c25e40] block">2</span>
+                <span class="text-[11px] font-semibold text-[#737373] uppercase tracking-wider mt-1 block">Coupons</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Order Preview -->
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
+              <h3 class="text-sm font-bold text-[#121212] uppercase tracking-wider">Latest Order</h3>
+              <button type="button" class="text-xs font-bold text-[#c25e40] hover:underline cursor-pointer" onclick="window.accountSwitchTab('orders')">
+                View All Orders &rarr;
+              </button>
+            </div>
+            <div id="overview-recent-order-container">
+              <!-- Dynamically populated via account.js -->
+            </div>
+          </div>
+
+          <!-- Profile Snapshot Card -->
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
+              <h3 class="text-sm font-bold text-[#121212] uppercase tracking-wider">Profile Information</h3>
+              <button type="button" class="text-xs font-bold text-[#121212] hover:underline cursor-pointer" onclick="window.accountSwitchTab('profile')">
+                Edit Details &rarr;
+              </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="bg-[#faf9f6] p-3 border border-[#eae8e3]">
+                <span class="text-[#737373] block text-[10px] uppercase font-bold tracking-wider mb-1">Full Name</span>
+                <span class="font-medium text-[#121212]" id="overview-profile-name">Arjun Singhania</span>
+              </div>
+              <div class="bg-[#faf9f6] p-3 border border-[#eae8e3]">
+                <span class="text-[#737373] block text-[10px] uppercase font-bold tracking-wider mb-1">Email ID</span>
+                <span class="font-medium text-[#121212]" id="overview-profile-email">member@aurelia.com</span>
+              </div>
+              <div class="bg-[#faf9f6] p-3 border border-[#eae8e3]">
+                <span class="text-[#737373] block text-[10px] uppercase font-bold tracking-wider mb-1">Contact Phone</span>
+                <span class="font-medium text-[#121212]" id="overview-profile-phone">+91 98765 43210</span>
+              </div>
+              <div class="bg-[#faf9f6] p-3 border border-[#eae8e3]">
+                <span class="text-[#737373] block text-[10px] uppercase font-bold tracking-wider mb-1">Default Delivery Address</span>
+                <span class="font-medium text-[#121212] truncate block" id="overview-profile-address">Indiranagar, Bengaluru</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: ORDERS & RETURNS -->
+        <div id="panel-orders" class="account-panel hidden space-y-4">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs flex items-center justify-between">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-[#121212]">My Orders & Returns</h2>
+              <p class="text-xs text-[#737373] mt-0.5">Track live dispatch, download invoices, or initiate exchanges.</p>
+            </div>
+            <a href="/shop.html" class="hidden sm:inline-block text-xs font-bold bg-[#121212] text-white px-4 py-2 hover:bg-black transition">
+              Explore Catalog
+            </a>
+          </div>
+
+          <div id="orders-list-container" class="space-y-4">
+            <!-- Dynamically populated via account.js -->
+          </div>
+        </div>
+
+        <!-- TAB 3: PROFILE DETAILS -->
+        <div id="panel-profile" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs">
+            <div class="flex items-center justify-between pb-4 border-b border-[#eae8e3]">
+              <div>
+                <h2 class="text-base sm:text-lg font-bold text-[#121212]">Profile Details</h2>
+                <p class="text-xs text-[#737373] mt-0.5">Edit your personal information and contact preferences.</p>
+              </div>
+            </div>
+
+            <form id="account-profile-form" class="space-y-5 text-xs mt-6 max-w-xl">
+              <div>
+                <label for="prof-name" class="block font-bold text-[#121212] mb-1.5 text-[10px] uppercase tracking-wider">
+                  Full Name *
+                </label>
+                <input 
+                  type="text" 
+                  id="prof-name" 
+                  required 
+                  class="w-full bg-[#faf9f6] border border-[#eae8e3] p-3 text-[#121212] focus:outline-none focus:border-[#121212] transition" 
+                />
+              </div>
+
+              <div>
+                <label for="prof-email" class="block font-bold text-[#121212] mb-1.5 text-[10px] uppercase tracking-wider">
+                  Email Address *
+                </label>
+                <input 
+                  type="email" 
+                  id="prof-email" 
+                  required 
+                  class="w-full bg-[#faf9f6] border border-[#eae8e3] p-3 text-[#121212] focus:outline-none focus:border-[#121212] transition" 
+                />
+              </div>
+
+              <div>
+                <label for="prof-phone" class="block font-bold text-[#121212] mb-1.5 text-[10px] uppercase tracking-wider">
+                  Mobile Number *
+                </label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 bg-[#f5f4ef] border border-r-0 border-[#eae8e3] text-gray-500 text-xs font-semibold">+91</span>
+                  <input 
+                    type="tel" 
+                    id="prof-phone" 
+                    required 
+                    placeholder="9876543210" 
+                    class="flex-1 bg-[#faf9f6] border border-[#eae8e3] p-3 text-[#121212] focus:outline-none focus:border-[#121212] transition" 
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-bold text-[#121212] mb-1.5 text-[10px] uppercase tracking-wider">
+                  Gender
+                </label>
+                <div class="flex items-center gap-6">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="prof-gender" value="Male" class="accent-[#121212]" />
+                    <span>Male</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="prof-gender" value="Female" class="accent-[#121212]" />
+                    <span>Female</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="prof-gender" value="Other" class="accent-[#121212]" />
+                    <span>Other</span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label for="prof-dob" class="block font-bold text-[#121212] mb-1.5 text-[10px] uppercase tracking-wider">
+                  Date of Birth
+                </label>
+                <input 
+                  type="date" 
+                  id="prof-dob" 
+                  class="w-full bg-[#faf9f6] border border-[#eae8e3] p-3 text-[#121212] focus:outline-none focus:border-[#121212] transition" 
+                />
+              </div>
+
+              <div class="pt-3">
+                <button 
+                  type="submit" 
+                  class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-6 py-3 hover:bg-black transition cursor-pointer"
+                >
+                  Save Profile Details
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- TAB 4: SAVED ADDRESSES -->
+        <div id="panel-addresses" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-[#121212]">Saved Delivery Addresses</h2>
+              <p class="text-xs text-[#737373] mt-0.5">Manage delivery destinations for fast checkout across India.</p>
+            </div>
+            <button 
+              type="button" 
+              id="btn-add-new-address" 
+              class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 hover:bg-black transition flex items-center gap-2 cursor-pointer"
+            >
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Add New Address</span>
+            </button>
+          </div>
+
+          <!-- Add / Edit Address Form Container (Collapsible) -->
+          <div id="address-form-container" class="hidden bg-white border border-[#121212] p-6 shadow-md">
+            <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3] mb-4">
+              <h3 class="text-sm font-bold text-[#121212] uppercase tracking-wider" id="address-form-title">Add New Address</h3>
+              <button type="button" id="btn-cancel-address-form" class="text-xs text-[#737373] hover:text-[#121212] cursor-pointer">&times; Cancel</button>
+            </div>
+
+            <form id="account-address-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <input type="hidden" id="addr-id" value="" />
+              
+              <div>
+                <label for="addr-name" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Contact Name *</label>
+                <input type="text" id="addr-name" required class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div>
+                <label for="addr-phone" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Mobile Number *</label>
+                <input type="tel" id="addr-phone" required class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="addr-house" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Flat, House no., Building, Company, Apartment *</label>
+                <input type="text" id="addr-house" required class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="addr-loc" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Area, Street, Sector, Village *</label>
+                <input type="text" id="addr-loc" required class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div>
+                <label for="addr-city" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Town / City *</label>
+                <input type="text" id="addr-city" required class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div>
+                <label for="addr-pin" class="block font-bold text-[#121212] mb-1 text-[10px] uppercase tracking-wider">Pincode *</label>
+                <input type="text" id="addr-pin" required maxlength="6" class="w-full bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-[#121212] focus:outline-none focus:border-[#121212]" />
+              </div>
+
+              <div class="sm:col-span-2 flex items-center gap-2 pt-2">
+                <input type="checkbox" id="addr-default" class="accent-[#121212]" />
+                <label for="addr-default" class="text-xs text-[#525252] cursor-pointer">Make this my default delivery address</label>
+              </div>
+
+              <div class="sm:col-span-2 flex gap-3 pt-2">
+                <button type="submit" class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-black transition cursor-pointer">
+                  Save Address
+                </button>
+                <button type="button" id="btn-cancel-address" class="border border-[#eae8e3] text-[#737373] text-xs font-bold uppercase tracking-wider px-6 py-2.5 hover:border-[#121212] hover:text-[#121212] transition cursor-pointer">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Address Cards List -->
+          <div id="addresses-list-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Dynamically populated via account.js -->
+          </div>
+        </div>
+
+        <!-- TAB 5: SAVED PAYMENTS -->
+        <div id="panel-payments" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs">
+            <h2 class="text-base sm:text-lg font-bold text-[#121212]">Saved Payment Preferences</h2>
+            <p class="text-xs text-[#737373] mt-0.5">Frontend demo preferences for express checkout.</p>
+
+            <div class="bg-[#faf9f6] border border-amber-200 text-amber-900 p-4 text-xs mt-4 flex items-start gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-amber-700 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="font-bold block">Safe Demo Mode:</strong>
+                <span>Full card numbers, expiration dates and CVVs are never requested or stored. Payment methods are simulated for boutique convenience.</span>
+              </div>
+            </div>
+
+            <div class="space-y-4 mt-6">
+              <!-- UPI Option -->
+              <div class="border border-[#eae8e3] p-4 bg-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-[#f5f4ef] flex items-center justify-center font-bold text-xs text-[#121212]">
+                    UPI
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#121212]">Primary UPI ID</h4>
+                    <p class="text-[11px] text-[#737373] mt-0.5" id="saved-upi-display">arjun@oksbi</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-xs">Verified</span>
+              </div>
+
+              <!-- Card Option -->
+              <div class="border border-[#eae8e3] p-4 bg-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-[#f5f4ef] flex items-center justify-center text-[#121212]">
+                    <i data-lucide="credit-card" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#121212]">HDFC Infinia Credit Card (Demo)</h4>
+                    <p class="text-[11px] text-[#737373] mt-0.5">Ending in &bull;&bull;&bull;&bull; 4819</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-gray-100 text-[#737373] rounded-xs">Demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: WISHLIST -->
+        <div id="panel-wishlist" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs flex items-center justify-between">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-[#121212]">My Saved Wishlist</h2>
+              <p class="text-xs text-[#737373] mt-0.5">Pieces you have bookmarked for future acquisition.</p>
+            </div>
+            <a href="/wishlist.html" class="text-xs font-bold text-[#c25e40] hover:underline">
+              Open Full Wishlist Page &rarr;
+            </a>
+          </div>
+
+          <div id="account-wishlist-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Dynamically populated via account.js -->
+          </div>
+        </div>
+
+        <!-- TAB 7: COUPONS -->
+        <div id="panel-coupons" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs">
+            <h2 class="text-base sm:text-lg font-bold text-[#121212]">Available Atelier Coupons</h2>
+            <p class="text-xs text-[#737373] mt-0.5">Use these codes at checkout or apply them directly to your bag.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+              <!-- Coupon 1 -->
+              <div class="border border-[#eae8e3] bg-[#faf9f6] p-5 space-y-3 relative overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold font-mono tracking-wider bg-white border border-dashed border-[#121212] px-3 py-1.5 text-[#121212]">
+                    ATELIER2026
+                  </span>
+                  <button type="button" class="btn-copy-coupon text-xs font-bold text-[#c25e40] hover:underline cursor-pointer" data-code="ATELIER2026">
+                    Copy Code
+                  </button>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-[#121212]">10% Off on Curations</h4>
+                  <p class="text-[11px] text-[#737373] mt-0.5">Valid on orders above ₹1,999. Includes complimentary shipping.</p>
+                </div>
+                <div class="pt-2 border-t border-[#eae8e3]">
+                  <a href="/cart.html" class="text-[11px] font-bold text-[#121212] hover:text-[#c25e40] flex items-center gap-1">
+                    <span>Apply in Bag</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Coupon 2 -->
+              <div class="border border-[#eae8e3] bg-[#faf9f6] p-5 space-y-3 relative overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold font-mono tracking-wider bg-white border border-dashed border-[#121212] px-3 py-1.5 text-[#121212]">
+                    AURELIA10
+                  </span>
+                  <button type="button" class="btn-copy-coupon text-xs font-bold text-[#c25e40] hover:underline cursor-pointer" data-code="AURELIA10">
+                    Copy Code
+                  </button>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-[#121212]">Flat ₹300 Courtesy Privilege</h4>
+                  <p class="text-[11px] text-[#737373] mt-0.5">Applicable on any order from the seasonal boutique collection.</p>
+                </div>
+                <div class="pt-2 border-t border-[#eae8e3]">
+                  <a href="/cart.html" class="text-[11px] font-bold text-[#121212] hover:text-[#c25e40] flex items-center gap-1">
+                    <span>Apply in Bag</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 8: GIFT CARDS -->
+        <div id="panel-giftcards" class="account-panel hidden space-y-6">
+          <div class="bg-white border border-[#eae8e3] p-6 shadow-2xs space-y-6">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-[#121212]">Gift Cards & Digital Vouchers</h2>
+              <p class="text-xs text-[#737373] mt-0.5">Atelier gift cards can be redeemed against any purchase.</p>
+            </div>
+
+            <!-- Card Visual Banner -->
+            <div class="bg-gradient-to-r from-[#121212] via-[#282c3f] to-[#121212] text-white p-6 sm:p-8 max-w-md shadow-lg space-y-6 rounded-xs">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-[9px] uppercase tracking-[0.3em] text-[#d4d4d4] font-semibold block">AURELIA ATELIER</span>
+                  <h3 class="font-editorial text-xl font-normal mt-1">Privilege Card</h3>
+                </div>
+                <i data-lucide="gift" class="w-6 h-6 text-[#c25e40]"></i>
+              </div>
+
+              <div>
+                <span class="text-[10px] text-[#a3a3a3] block font-mono">Demo Balance Available</span>
+                <p class="text-2xl font-bold font-mono tracking-tight text-white mt-0.5">₹5,000.00</p>
+              </div>
+
+              <div class="flex justify-between items-end pt-2 border-t border-white/20 text-[10px] font-mono text-[#a3a3a3]">
+                <span>CARD: AUR-GIFT-5000</span>
+                <span>EXP: 12/2028</span>
+              </div>
+            </div>
+
+            <!-- Balance Check Demo -->
+            <div class="max-w-md space-y-3 pt-2">
+              <label for="gc-input" class="block font-bold text-[#121212] text-[10px] uppercase tracking-wider">
+                Check Gift Card Balance (Demo)
+              </label>
+              <div class="flex gap-2">
+                <input 
+                  type="text" 
+                  id="gc-input" 
+                  placeholder="Enter 16-digit card number" 
+                  value="AUR-GIFT-5000" 
+                  class="flex-1 bg-[#faf9f6] border border-[#eae8e3] p-2.5 text-xs text-[#121212] font-mono focus:outline-none focus:border-[#121212]" 
+                />
+                <button 
+                  type="button" 
+                  id="btn-check-gc" 
+                  class="bg-[#121212] text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 hover:bg-black transition cursor-pointer"
+                >
+                  Verify
+                </button>
+              </div>
+              <p class="text-[11px] text-[#737373]">Note: Gift cards are simulated for frontend demonstration.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Anchor -->
+  <div id="app-footer"></div>
+
+  <script type="module" src="/src/js/pages/account.js"></script>
+</body>
+</html>

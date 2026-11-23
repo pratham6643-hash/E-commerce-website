@@ -4,7 +4,7 @@ const WISHLIST_KEY = 'aurelia_wishlist_items';
 const LEGACY_CART_KEY = 'ajio_cart_items';
 const LEGACY_WISHLIST_KEY = 'ajio_wishlist_items';
 
-class StoreService {
+export class StoreService {
   constructor() {
     this.cart = this.loadWithMigration(CART_KEY, LEGACY_CART_KEY, []);
     this.wishlist = this.loadWithMigration(WISHLIST_KEY, LEGACY_WISHLIST_KEY, []);

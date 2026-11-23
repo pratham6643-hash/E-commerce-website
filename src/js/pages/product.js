@@ -176,6 +176,13 @@ function initPDP() {
     if (reviewsEl) reviewsEl.textContent = `${product.reviewCount || 120} Reviews`;
     if (descEl) descEl.textContent = product.description;
 
+    // Render Product-Specific Specifications
+    try {
+      renderProductSpecifications(product);
+    } catch (e) {
+      console.warn('Error in renderProductSpecifications:', e);
+    }
+
     // Render Desktop 2-Column Photo Grid
     try {
       renderDesktopGrid(product);
@@ -259,10 +266,87 @@ function initPDP() {
     }
   }
 
-  // Desktop 2-Column Photo Grid with individual scroll anchors
+  // Category-specific Product Specifications generator
+  function renderProductSpecifications(product) {
+    const container = document.getElementById('pdp-specifications-container');
+    if (!container) return;
+
+    const specs = [];
+    const cat = (product.category || '').toLowerCase();
+    const sub = (product.subcategory || '').toLowerCase();
+    const desc = product.description || '';
+
+    // Material detection from authentic product description
+    let material = null;
+    if (desc.match(/sterling silver/i)) material = '925 Sterling Silver';
+    else if (desc.match(/stainless steel/i)) material = 'Stainless Steel';
+    else if (desc.match(/acetate/i)) material = 'Mazzucchelli Acetate';
+    else if (desc.match(/vachetta leather/i)) material = 'Tuscan Vachetta Leather';
+    else if (desc.match(/calfskin/i)) material = 'Italian Calfskin';
+    else if (desc.match(/suede/i)) material = 'Calf Suede';
+    else if (desc.match(/nappa leather/i)) material = 'Nappa Leather';
+    else if (desc.match(/saddle leather/i)) material = 'Glazed Saddle Leather';
+    else if (desc.match(/pebbled.*leather|leather/i) && (cat === 'accessories' || cat === 'footwear')) material = 'Genuine Leather';
+    else if (desc.match(/raffia/i)) material = 'Natural Raffia';
+    else if (desc.match(/cashmere.*wool|merino wool/i)) material = 'Cashmere & Merino Wool';
+    else if (desc.match(/mulberry silk/i)) material = '100% Mulberry Silk';
+    else if (desc.match(/chanderi silk/i)) material = 'Chanderi Silk-Cotton';
+    else if (desc.match(/selvedge denim|denim/i)) material = 'Selvedge Denim';
+    else if (desc.match(/linen/i)) material = 'Flax Linen';
+    else if (desc.match(/cotton/i)) material = 'Premium Cotton';
+    else if (desc.match(/wool/i)) material = 'Virgin Wool';
+    else if (desc.match(/viscose|tencel/i)) material = 'Tencel / Viscose';
+
+    if (material) {
+      specs.push({ label: 'Material', value: material });
+    }
+
+    // Apparel-specific: Fit & Wash Care only when genuinely applicable
+    if (cat === 'men' || cat === 'women') {
+      let fit = 'Regular Fit';
+      if (desc.match(/relaxed|oversized|boxy|slouchy/i)) fit = 'Relaxed Fit';
+      else if (desc.match(/tailored|structured|columnar|knife pleat/i)) fit = 'Tailored Fit';
+      else if (desc.match(/bias-cut|fluid/i)) fit = 'Fluid Fit';
+      specs.push({ label: 'Fit', value: fit });
+      specs.push({ label: 'Wash Care', value: 'Dry Clean Only / Gentle Wash' });
+    }
+
+    // Footwear-specific attributes
+    if (cat === 'footwear') {
+      const formattedSub = sub ? sub.charAt(0).toUpperCase() + sub.slice(1) : 'Footwear';
+      specs.push({ label: 'Product Type', value: formattedSub });
+      if (product.sizes && product.sizes.length > 0) {
+        specs.push({ label: 'Sizes Available', value: product.sizes.join(', ') });
+      }
+    }
+
+    // Accessories-specific attributes
+    if (cat === 'accessories') {
+      const formattedSub = sub ? sub.charAt(0).toUpperCase() + sub.slice(1) : 'Accessory';
+      specs.push({ label: 'Product Type', value: formattedSub });
+    }
+
+    // Country of Origin (Universal)
+    specs.push({ label: 'Country of Origin', value: 'India' });
+
+    container.innerHTML = specs.map((s) => `
+      <div class="py-1.5 flex justify-between items-center text-xs">
+        <span class="text-[#737373]">${s.label}</span>
+        <span class="font-medium text-[#121212] text-right">${s.value}</span>
+      </div>
+    `).join('');
+  }
+
+  // Desktop Photo Grid with individual scroll anchors
   function renderDesktopGrid(product) {
     const desktopGrid = document.getElementById('pdp-desktop-grid');
     if (!desktopGrid) return;
+
+    if (product.images && product.images.length === 1) {
+      desktopGrid.className = 'hidden lg:grid grid-cols-1 max-w-md gap-4';
+    } else {
+      desktopGrid.className = 'hidden lg:grid grid-cols-2 gap-4';
+    }
 
     desktopGrid.innerHTML = product.images.map((img, idx) => `
       <div id="desktop-photo-${idx}" class="relative bg-[#f5f4ef] border border-[#eae8e3] overflow-hidden group">
@@ -554,17 +638,28 @@ function initPDP() {
       const updateWishlistUI = () => {
         const activeProd = currentProduct || product;
         const isWishlisted = store.isInWishlist(activeProd.id);
-        const icon = wishlistBtn.querySelector('i');
+        const icon = wishlistBtn.querySelector('svg, i');
         if (icon) {
           if (isWishlisted) {
             icon.classList.add('fill-[#121212]', 'text-[#121212]');
           } else {
             icon.classList.remove('fill-[#121212]', 'text-[#121212]');
           }
+          icon.classList.add('scale-110');
+          setTimeout(() => icon.classList.remove('scale-110'), 200);
         }
         if (wishlistLabel) {
           wishlistLabel.textContent = isWishlisted ? 'Saved in Curation' : 'Save to Curation';
         }
+
+        // Synchronize any card instances of this product on the page (e.g. similar products rail)
+        document.querySelectorAll(`[data-wishlist-id="${activeProd.id}"] svg, [data-wishlist-id="${activeProd.id}"] i`).forEach((el) => {
+          if (isWishlisted) {
+            el.classList.add('fill-[#121212]', 'text-[#121212]');
+          } else {
+            el.classList.remove('fill-[#121212]', 'text-[#121212]');
+          }
+        });
       };
 
       updateWishlistUI();

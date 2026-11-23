@@ -15,6 +15,8 @@ export default defineConfig({
         checkout: fileURLToPath(new URL('./checkout.html', import.meta.url)),
         login: fileURLToPath(new URL('./login.html', import.meta.url)),
         signup: fileURLToPath(new URL('./signup.html', import.meta.url)),
+        help: fileURLToPath(new URL('./help.html', import.meta.url)),
+        account: fileURLToPath(new URL('./account.html', import.meta.url)),
       },
     },
   },

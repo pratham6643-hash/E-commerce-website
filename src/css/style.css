@@ -5,25 +5,33 @@
 @import "photoswipe/style.css";
 
 @theme {
-  --color-canvas-bg: #faf9f6; /* Warm alabaster/linen */
+  --color-canvas-bg: #F8F7F4; /* Pearl Cream White primary background */
+  --color-canvas-pearl: #F8F7F4;
   --color-canvas-white: #ffffff;
   --color-ink-950: #121212; /* Deep bespoke carbon black */
-  --color-ink-800: #262626;
-  --color-ink-600: #525252;
-  --color-ink-400: #a3a3a3;
-  --color-border-subtle: #eae8e3;
+  --color-ink-800: #282c3f; /* Myntra signature dark charcoal */
+  --color-ink-600: #535766; /* Myntra secondary gray */
+  --color-ink-400: #94969f; /* Myntra muted strikethrough gray */
+  --color-border-subtle: #eae8e3; /* Crisp marketplace border */
   --color-terracotta: #c25e40; /* Editorial warm earthy terracotta accent */
+  --color-accent-pink: #ff3f6c; /* Vibrant marketplace accent */
   --color-olive: #3d4a3e; /* Muted forest olive */
   --font-serif: 'Playfair Display', Georgia, Cambria, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Editorial typography & smooth scrolling */
+/* Modern E-Commerce Marketplace Typography & Smooth Scrolling */
 html {
-  background-color: var(--color-canvas-bg);
-  color: var(--color-ink-950);
+  background-color: #F8F7F4;
+  color: var(--color-ink-800);
+  font-family: var(--font-sans);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #F8F7F4;
+  color: var(--color-ink-800);
 }
 
 /* Lenis recommended core styles */
@@ -47,10 +55,38 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Custom Serif Headings */
+/* Custom Serif Headings (Optional brand flair) */
 .font-editorial {
   font-family: var(--font-serif);
   letter-spacing: -0.02em;
+}
+
+/* Fluid Luxury E-Commerce Container (replaces restrictive 1280px ceilings) */
+.atelier-container {
+  width: 100%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .atelier-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .atelier-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .atelier-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 /* Custom Navigation Arrows for Hero and PDP */
@@ -109,7 +145,7 @@ html.lenis, html.lenis body {
 
 /* Swiper Pagination Positioning & Styling */
 .hero-swiper .swiper-pagination {
-  bottom: 16px !important;
+  bottom: 20px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -127,23 +163,25 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Editorial elongated active bullet */
+/* Marketplace elongated active bullet */
 .swiper-pagination-bullet {
-  background: #a3a3a3 !important;
+  background: #ffffff !important;
   opacity: 0.6;
+  width: 8px;
+  height: 8px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .swiper-pagination-bullet-active {
-  background: #121212 !important;
-  width: 28px !important;
+  background: #c25e40 !important;
+  width: 24px !important;
   border-radius: 9999px !important;
   opacity: 1;
 }
 
 /* Micro-interaction utility classes */
 .hover-reveal-img {
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .group:hover .hover-reveal-img {
   transform: scale(1.04);
@@ -167,7 +205,7 @@ html.lenis, html.lenis body {
   display: inline-grid;
   place-content: center;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 2px;
   transition: all 0.2s ease;
 }
 
@@ -178,6 +216,7 @@ html.lenis, html.lenis body {
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   background-color: #121212;
+  border-radius: 1px;
 }
 
 .custom-checkbox:checked {
@@ -190,7 +229,7 @@ html.lenis, html.lenis body {
 
 /* Stepper connectors */
 .stepper-line {
-  height: 1px;
+  height: 2px;
   background-color: #eae8e3;
   flex: 1;
 }
@@ -199,7 +238,7 @@ html.lenis, html.lenis body {
   background-color: #121212;
 }
 
-/* Subtle Shake Animation for Size Validation Warning */
+/* Shake Animation for Size Validation Warning */
 @keyframes pdpShake {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-4px); }
@@ -210,4 +249,167 @@ html.lenis, html.lenis body {
   animation: pdpShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
+/* Myntra-style Header Active Bottom Border Indicator */
+.nav-category-link {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #282c3f;
+  transition: color 0.15s ease;
+}
 
+.nav-category-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.nav-category-link:hover,
+.nav-category-link.active {
+  color: #121212;
+}
+
+.nav-category-link:hover::after,
+.nav-category-link.active::after {
+  background-color: #c25e40;
+}
+
+/* Category Card Badge */
+.category-promo-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Myntra-style Profile Dropdown Hover Bridge */
+#profile-menu-container:hover #profile-dropdown,
+#profile-dropdown:hover {
+  display: block !important;
+}
+
+/* Help Center Query Category Active State */
+.help-category-btn.active {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+/* Responsive Product Grid Hierarchy (Shop Page) */
+#products-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+  #products-grid {
+    gap: 0.875rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.875rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #products-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.875rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  #products-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0.875rem !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  #products-grid {
+    gap: 1rem !important;
+  }
+}
+
+/* Responsive Shop By Category Grid Hierarchy (Homepage) */
+#top-categories-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.875rem !important;
+}
+
+@media (min-width: 768px) {
+  #top-categories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #top-categories-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  #top-categories-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  #top-categories-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 1.125rem !important;
+  }
+}
+
+/* Homepage 5-Column Product Grid on Desktop (1280px+) */
+@media (min-width: 1280px) {
+  #best-sellers,
+  #new-arrivals,
+  #trending-footwear,
+  #trending-men,
+  #trending-women {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Eliminate Active Filters Bar to prevent vertical layout jumps */
+#active-filters-bar,
+#active-chips-container,
+.active-filters-row {
+  display: none !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+/* Compact Marketplace Footer Enhancements */
+.footer-trust-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-trust-card:hover {
+  border-color: #121212;
+}

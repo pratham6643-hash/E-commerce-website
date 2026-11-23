@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (items.length === 0) {
       summaryList.innerHTML = `
         <div class="py-6 text-center text-xs text-[#737373]">
-          Your bag has no allocated pieces. <a href="/shop.html" class="text-[#121212] underline font-bold">Browse collection</a>.
+          Your bag has no items. <a href="/shop.html" class="text-[#121212] underline font-bold">Browse collection</a>.
         </div>
       `;
     } else {
@@ -198,6 +198,35 @@ document.addEventListener('DOMContentLoaded', () => {
       // Generate bespoke Atelier Order Reference
       const randomOrderRef = 'AUR-2026-' + Math.floor(100000 + Math.random() * 900000);
       if (orderIdSpan) orderIdSpan.textContent = randomOrderRef;
+
+      // Persist order to aurelia_orders for Account Orders & Returns tab
+      try {
+        const existingRaw = localStorage.getItem('aurelia_orders');
+        const ordersList = existingRaw ? JSON.parse(existingRaw) : [];
+        const savedAddr = getSavedAddress() || { name: 'Arjun Singhania', house: '402 Monolith', loc: 'Indiranagar', city: 'Bengaluru', pin: '560038' };
+        const newOrder = {
+          id: randomOrderRef,
+          date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+          status: 'Confirmed',
+          statusBadge: 'Confirmed • Processing',
+          statusColor: 'emerald',
+          total: finalValuation,
+          items: items.map((i) => ({
+            id: i.id,
+            name: i.name,
+            brand: i.brand,
+            selectedSize: i.selectedSize || 'M',
+            quantity: i.quantity,
+            price: i.price,
+            image: i.image,
+          })),
+          address: savedAddr,
+        };
+        ordersList.unshift(newOrder);
+        localStorage.setItem('aurelia_orders', JSON.stringify(ordersList));
+      } catch (err) {
+        console.warn('Could not persist order:', err);
+      }
 
       // Clear cart
       store.clearCart();
