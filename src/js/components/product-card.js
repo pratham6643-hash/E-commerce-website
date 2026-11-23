@@ -64,7 +64,7 @@ export function createProductCard(product) {
 
         <!-- Desktop Hover Quick Add Size Bar (Myntra-Style Instant Strip) -->
         ${product.sizes && product.sizes.length ? `
-          <div class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-xs border-t border-gray-200 py-2.5 px-3 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-2 group-hover:translate-y-0 hidden md:flex z-20 shadow-md">
+          <div class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-xs border-t border-gray-200 py-2.5 px-3 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 hidden md:flex z-20 shadow-md">
             <span class="text-[10px] uppercase tracking-wider text-gray-600 font-bold mb-1.5">Select Size</span>
             <div class="flex items-center gap-1.5 flex-wrap justify-center">
               ${product.sizes.map((s) => `

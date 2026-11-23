@@ -127,7 +127,7 @@ function renderHeader(activePage) {
     <!-- Main Myntra-Style Sticky Navigation Header -->
     <header class="bg-[#F8F7F4]/95 backdrop-blur-md border-b border-[#eae8e3] sticky top-0 z-50 transition-colors shadow-2xs">
       <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div class="flex items-center justify-between h-20 gap-4 lg:gap-8">
+        <div class="flex items-center justify-between h-20 gap-3 md:gap-4 lg:gap-8">
           
           <!-- Brand Logo & Main Category Navigation Links -->
           <div class="flex items-center gap-6 xl:gap-10 h-full">
@@ -152,7 +152,7 @@ function renderHeader(activePage) {
                   Men
                 </a>
                 <!-- Men Multi-Column Mega Menu -->
-                <div class="hidden group-hover/nav:grid absolute top-full -left-6 w-[780px] bg-white border border-[#eaeaec] shadow-2xl p-7 grid-cols-4 gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
+                <div class="hidden group-hover/nav:grid absolute top-full left-0 w-[720px] xl:w-[780px] max-w-[calc(100vw-2rem)] bg-white border border-[#eaeaec] shadow-2xl p-6 xl:p-7 grid-cols-4 gap-5 xl:gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
                   <div>
                     <h4 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#c25e40] mb-3 pb-1 border-b border-gray-100">Topwear</h4>
                     <ul class="space-y-2 text-xs text-[#535766]">
@@ -201,7 +201,7 @@ function renderHeader(activePage) {
                   Women
                 </a>
                 <!-- Women Multi-Column Mega Menu -->
-                <div class="hidden group-hover/nav:grid absolute top-full -left-20 w-[780px] bg-white border border-[#eaeaec] shadow-2xl p-7 grid-cols-4 gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
+                <div class="hidden group-hover/nav:grid absolute top-full -left-12 xl:-left-20 w-[720px] xl:w-[780px] max-w-[calc(100vw-2rem)] bg-white border border-[#eaeaec] shadow-2xl p-6 xl:p-7 grid-cols-4 gap-5 xl:gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
                   <div>
                     <h4 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#c25e40] mb-3 pb-1 border-b border-gray-100">Dresses & Outerwear</h4>
                     <ul class="space-y-2 text-xs text-[#535766]">
@@ -250,7 +250,7 @@ function renderHeader(activePage) {
                   Footwear
                 </a>
                 <!-- Footwear Multi-Column Mega Menu -->
-                <div class="hidden group-hover/nav:grid absolute top-full -left-36 w-[680px] bg-white border border-[#eaeaec] shadow-2xl p-7 grid-cols-3 gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
+                <div class="hidden group-hover/nav:grid absolute top-full -left-20 xl:-left-36 w-[620px] xl:w-[680px] max-w-[calc(100vw-2rem)] bg-white border border-[#eaeaec] shadow-2xl p-6 xl:p-7 grid-cols-3 gap-5 xl:gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
                   <div>
                     <h4 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#c25e40] mb-3 pb-1 border-b border-gray-100">Shoes & Loafers</h4>
                     <ul class="space-y-2 text-xs text-[#535766]">
@@ -284,7 +284,7 @@ function renderHeader(activePage) {
                   Accessories
                 </a>
                 <!-- Accessories Multi-Column Mega Menu -->
-                <div class="hidden group-hover/nav:grid absolute top-full -left-52 w-[680px] bg-white border border-[#eaeaec] shadow-2xl p-7 grid-cols-3 gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
+                <div class="hidden group-hover/nav:grid absolute top-full -left-28 xl:-left-52 w-[620px] xl:w-[680px] max-w-[calc(100vw-2rem)] bg-white border border-[#eaeaec] shadow-2xl p-6 xl:p-7 grid-cols-3 gap-5 xl:gap-6 z-50 text-left normal-case tracking-normal rounded-b-xs">
                   <div>
                     <h4 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#c25e40] mb-3 pb-1 border-b border-gray-100">Bags & Wallets</h4>
                     <ul class="space-y-2 text-xs text-[#535766]">
@@ -323,7 +323,7 @@ function renderHeader(activePage) {
           </div>
 
           <!-- Central Wide Search Bar with Live Suggestions -->
-          <div class="flex-1 max-w-xl hidden md:block relative">
+          <div class="flex-1 max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-xl hidden md:block relative">
             <form action="/shop.html" method="GET" id="header-search-form" class="relative flex items-center">
               <i data-lucide="search" class="w-4 h-4 text-[#737373] absolute left-3.5 pointer-events-none"></i>
               <input 
@@ -354,7 +354,7 @@ function renderHeader(activePage) {
           </div>
 
           <!-- User Actions Cluster (Profile, Wishlist, Bag with Stacked Labels) -->
-          <div class="flex items-center gap-3 sm:gap-5 lg:gap-7 shrink-0">
+          <div class="flex items-center gap-3 sm:gap-4 lg:gap-7 shrink-0">
             
             <!-- Mobile Search Trigger Button -->
             <button 
