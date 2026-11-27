@@ -33,11 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryCheckboxes = document.querySelectorAll('.filter-category-cb');
   const brandCheckboxes = document.querySelectorAll('.filter-brand-cb');
   const sizeCheckboxes = document.querySelectorAll('.filter-size-cb');
-  const priceRange = document.getElementById('price-range');
-  const priceDisplay = document.getElementById('price-display');
-  const priceBucketCheckboxes = document.querySelectorAll('.filter-price-cb');
-  const discountRadios = document.querySelectorAll('.filter-discount-rb');
-  const ratingRadios = document.querySelectorAll('.filter-rating-rb');
 
   // Mobile drawer elements
   const mobileSortBtn = document.getElementById('mobile-sort-btn');
@@ -61,10 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     categories: initialCategory ? [initialCategory.toLowerCase()] : [],
     brands: [],
     sizes: [],
-    priceBuckets: [],
-    maxPrice: 6000,
-    minDiscount: 0,
-    minRating: 0,
     sort: initialSort,
     query: initialQuery,
   };
@@ -95,13 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bVellum) bVellum.textContent = `(${counts.brands['VELLUM & CO.'] || 0})`;
     if (bEpure) bEpure.textContent = `(${counts.brands['ATELIER ÉPURE'] || 0})`;
 
-    // Price buckets
-    const pUnder2500 = document.getElementById('count-price-under-2500');
-    const p2500to3500 = document.getElementById('count-price-2500-3500');
-    const pAbove3500 = document.getElementById('count-price-above-3500');
-    if (pUnder2500) pUnder2500.textContent = `(${counts.priceBuckets['under-2500'] || 0})`;
-    if (p2500to3500) p2500to3500.textContent = `(${counts.priceBuckets['2500-3500'] || 0})`;
-    if (pAbove3500) pAbove3500.textContent = `(${counts.priceBuckets['above-3500'] || 0})`;
+    // Price buckets removed
 
     // Discounts
     const d40 = document.getElementById('count-disc-40');
@@ -131,29 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sizes
     sizeCheckboxes.forEach((cb) => {
       cb.checked = filterState.sizes.includes(cb.value);
-    });
-
-    // Price range
-    if (priceRange) {
-      priceRange.value = filterState.maxPrice;
-    }
-    if (priceDisplay) {
-      priceDisplay.textContent = formatCurrency(filterState.maxPrice);
-    }
-
-    // Price buckets
-    priceBucketCheckboxes.forEach((cb) => {
-      cb.checked = filterState.priceBuckets.includes(cb.value);
-    });
-
-    // Discount
-    discountRadios.forEach((rb) => {
-      rb.checked = Number(rb.value) === filterState.minDiscount;
-    });
-
-    // Rating
-    ratingRadios.forEach((rb) => {
-      rb.checked = Number(rb.value) === filterState.minRating;
     });
 
     // Search
@@ -197,10 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     activeFilterCount += filterState.categories.length;
     activeFilterCount += filterState.brands.length;
     activeFilterCount += filterState.sizes.length;
-    activeFilterCount += filterState.priceBuckets.length;
-    if (filterState.maxPrice < 6000) activeFilterCount++;
-    if (filterState.minDiscount > 0) activeFilterCount++;
-    if (filterState.minRating > 0) activeFilterCount++;
 
     if (mobileFilterBadge) {
       if (activeFilterCount > 0) {
@@ -256,10 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     filterState.categories = [];
     filterState.brands = [];
     filterState.sizes = [];
-    filterState.priceBuckets = [];
-    filterState.maxPrice = 6000;
-    filterState.minDiscount = 0;
-    filterState.minRating = 0;
     filterState.query = '';
     filterState.sort = 'recommended';
 
@@ -313,54 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       syncInputsWithState();
       renderProducts();
-    });
-  });
-
-  // Price Range Slider
-  if (priceRange) {
-    priceRange.addEventListener('input', (e) => {
-      filterState.maxPrice = Number(e.target.value);
-      if (priceDisplay) {
-        priceDisplay.textContent = formatCurrency(filterState.maxPrice);
-      }
-    });
-
-    priceRange.addEventListener('change', () => {
-      renderProducts();
-    });
-  }
-
-  // Price Bucket Checkboxes
-  priceBucketCheckboxes.forEach((cb) => {
-    cb.addEventListener('change', () => {
-      if (cb.checked) {
-        if (!filterState.priceBuckets.includes(cb.value)) {
-          filterState.priceBuckets.push(cb.value);
-        }
-      } else {
-        filterState.priceBuckets = filterState.priceBuckets.filter((b) => b !== cb.value);
-      }
-      renderProducts();
-    });
-  });
-
-  // Discount Radios
-  discountRadios.forEach((rb) => {
-    rb.addEventListener('change', () => {
-      if (rb.checked) {
-        filterState.minDiscount = Number(rb.value);
-        renderProducts();
-      }
-    });
-  });
-
-  // Rating Radios
-  ratingRadios.forEach((rb) => {
-    rb.addEventListener('change', () => {
-      if (rb.checked) {
-        filterState.minRating = Number(rb.value);
-        renderProducts();
-      }
     });
   });
 
@@ -482,53 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
           filterState.sizes = filterState.sizes.filter((s) => s !== val);
         }
         syncInputsWithState();
-      });
-    });
-
-    // Mobile price slider
-    const mSlider = mobileFilterControls.querySelector('#price-range');
-    const mDisplay = mobileFilterControls.querySelector('#price-display');
-    if (mSlider) {
-      mSlider.value = filterState.maxPrice;
-      mSlider.addEventListener('input', (e) => {
-        filterState.maxPrice = Number(e.target.value);
-        if (mDisplay) mDisplay.textContent = formatCurrency(filterState.maxPrice);
-        if (priceDisplay) priceDisplay.textContent = formatCurrency(filterState.maxPrice);
-      });
-    }
-
-    // Mobile price buckets
-    mobileFilterControls.querySelectorAll('.filter-price-cb').forEach((cb) => {
-      cb.checked = filterState.priceBuckets.includes(cb.value);
-      cb.addEventListener('change', () => {
-        if (cb.checked) {
-          if (!filterState.priceBuckets.includes(cb.value)) filterState.priceBuckets.push(cb.value);
-        } else {
-          filterState.priceBuckets = filterState.priceBuckets.filter((b) => b !== cb.value);
-        }
-        syncInputsWithState();
-      });
-    });
-
-    // Mobile discounts
-    mobileFilterControls.querySelectorAll('.filter-discount-rb').forEach((rb) => {
-      rb.checked = Number(rb.value) === filterState.minDiscount;
-      rb.addEventListener('change', () => {
-        if (rb.checked) {
-          filterState.minDiscount = Number(rb.value);
-          syncInputsWithState();
-        }
-      });
-    });
-
-    // Mobile ratings
-    mobileFilterControls.querySelectorAll('.filter-rating-rb').forEach((rb) => {
-      rb.checked = Number(rb.value) === filterState.minRating;
-      rb.addEventListener('change', () => {
-        if (rb.checked) {
-          filterState.minRating = Number(rb.value);
-          syncInputsWithState();
-        }
       });
     });
 

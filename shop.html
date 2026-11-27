@@ -18,7 +18,7 @@
   <!-- Header Anchor -->
   <div id="app-header" class="min-h-[116px]"></div>
 
-  <main class="flex-1 max-w-[1680px] mx-auto px-4 sm:px-5 lg:px-6 xl:px-8 w-full py-6 sm:py-8 pb-28 md:pb-10">
+  <main class="flex-1 w-full px-4 sm:px-5 lg:px-6 xl:px-8 2xl:px-10 py-6 sm:py-8 pb-28 md:pb-10">
 
     <!-- Breadcrumb & Page Header -->
     <div class="pb-5 border-b border-[#eaeaec]">
@@ -66,7 +66,7 @@
     <div class="flex flex-col md:flex-row gap-4 lg:gap-5 pt-6 items-start">
 
       <!-- Desktop Filter Sidebar -->
-      <aside class="hidden md:block w-56 lg:w-[240px] shrink-0 space-y-5 sticky top-28 bg-white p-4 sm:p-4.5 border border-[#eae8e3] max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar shadow-2xs">
+      <aside class="hidden md:block w-56 lg:w-[240px] shrink-0 space-y-5 sticky top-28 bg-white p-4 sm:p-4.5 border border-[#eae8e3] shadow-2xs">
         
         <div class="flex items-center justify-between pb-3 border-b border-[#eae8e3]">
           <span class="text-xs font-bold uppercase tracking-[0.16em] text-[#121212]">Filters</span>
@@ -199,107 +199,13 @@
           </div>
         </div>
 
-        <!-- Price Range Accordion -->
-        <div class="space-y-3 pb-4 border-b border-[#eae8e3]">
-          <div class="flex items-center justify-between">
-            <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Price Range</h3>
-            <span id="price-display" class="text-xs font-bold text-[#121212]">₹6,000</span>
-          </div>
-          <input 
-            type="range" 
-            id="price-range" 
-            min="1000" 
-            max="6000" 
-            step="100" 
-            value="6000" 
-            class="w-full accent-[#121212] cursor-pointer"
-          />
-          <div class="space-y-2 pt-1" id="price-buckets-group">
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="checkbox" name="priceBucket" value="under-2500" class="custom-checkbox filter-price-cb" />
-                <span>Under ₹2,500</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-price-under-2500">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="checkbox" name="priceBucket" value="2500-3500" class="custom-checkbox filter-price-cb" />
-                <span>₹2,500 - ₹3,500</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-price-2500-3500">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="checkbox" name="priceBucket" value="above-3500" class="custom-checkbox filter-price-cb" />
-                <span>Above ₹3,500</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-price-above-3500">(0)</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Discount Privilege Accordion -->
-        <div class="space-y-2.5 pb-4 border-b border-[#eae8e3]">
-          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Discount</h3>
-          <div class="space-y-2" id="discount-group">
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="discount" value="40" class="accent-[#121212] filter-discount-rb" />
-                <span>40% and above</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-disc-40">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="discount" value="30" class="accent-[#121212] filter-discount-rb" />
-                <span>30% and above</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-disc-30">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="discount" value="0" checked class="accent-[#121212] filter-discount-rb" />
-                <span>All Discounts</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Customer Rating Accordion -->
-        <div class="space-y-2.5">
-          <h3 class="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#121212]">Customer Rating</h3>
-          <div class="space-y-2" id="rating-group">
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="rating" value="4.5" class="accent-[#121212] filter-rating-rb" />
-                <span>4.5★ and above</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-rat-45">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="rating" value="4.0" class="accent-[#121212] filter-rating-rb" />
-                <span>4.0★ and above</span>
-              </span>
-              <span class="text-[10px] text-[#a3a3a3]" id="count-rat-40">(0)</span>
-            </label>
-            <label class="flex items-center justify-between text-xs text-[#525252] hover:text-[#121212] cursor-pointer">
-              <span class="flex items-center gap-2.5">
-                <input type="radio" name="rating" value="0" checked class="accent-[#121212] filter-rating-rb" />
-                <span>All Ratings</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
       </aside>
 
       <!-- Right Product Listing Grid -->
       <section class="flex-1 min-w-0">
         <div 
           id="products-grid" 
-          class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3.5 sm:gap-4 min-h-[400px]"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 min-h-[400px]"
           aria-live="polite"
         >
           <!-- Dynamically populated via shop.js -->

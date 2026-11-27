@@ -109,8 +109,8 @@ function renderHeader(activePage) {
 
   container.innerHTML = `
     <!-- Top Marketplace Announcement / Privilege Ticker with Help Link -->
-    <div class="bg-[#121212] text-[#ffffff] text-[11px] py-1.5 px-4 sm:px-6 lg:px-8 tracking-[0.14em] uppercase font-medium border-b border-black/10">
-      <div class="max-w-[1680px] mx-auto flex items-center justify-between gap-4">
+    <div class="bg-[#121212] text-[#ffffff] text-[11px] py-1.5 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 tracking-[0.14em] uppercase font-medium border-b border-black/10">
+      <div class="w-full flex items-center justify-between gap-4">
         <div class="flex items-center gap-2 mx-auto sm:mx-0">
           <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#c25e40]"></span>
           <span>FLAT 15% OFF ON YOUR FIRST ORDER &bull; USE CODE: <strong>ATELIER2026</strong> &bull; FREE DELIVERY OVER ₹2,500</span>
@@ -126,7 +126,7 @@ function renderHeader(activePage) {
 
     <!-- Main Myntra-Style Sticky Navigation Header -->
     <header class="bg-[#F8F7F4]/95 backdrop-blur-md border-b border-[#eae8e3] sticky top-0 z-50 transition-colors shadow-2xs">
-      <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <div class="flex items-center justify-between h-20 gap-3 md:gap-4 lg:gap-8">
           
           <!-- Brand Logo & Main Category Navigation Links -->
@@ -1067,7 +1067,7 @@ function renderFooter() {
   container.innerHTML = `
     <!-- Myntra-Style Marketplace Trust & Assurance Banner -->
     <section class="bg-[#F8F7F4] border-t border-[#eae8e3] py-5 sm:py-6">
-      <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left">
           
           <div class="footer-trust-card flex items-center gap-3 p-3 bg-white border border-[#eae8e3] rounded-xs shadow-2xs h-full">
@@ -1116,7 +1116,7 @@ function renderFooter() {
 
     <!-- Myntra-Inspired Multi-Column Footer -->
     <footer class="bg-[#F8F7F4] text-[#535766] pt-8 sm:pt-10 pb-6 sm:pb-8 text-xs font-sans border-t border-[#eae8e3]">
-      <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-6 lg:gap-8 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-[#eaeaec]">
           

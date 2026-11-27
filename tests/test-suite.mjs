@@ -288,21 +288,21 @@ test('Price range slider and category filtering', () => {
 // ==========================================
 console.log('\nSuite 5: Responsive Layout & Container Widths');
 
-test('HTML templates and CSS have 1680px fluid container ceilings', () => {
+test('HTML templates and CSS have full-width fluid layouts', () => {
   const shopHtml = fs.readFileSync('shop.html', 'utf8');
-  assert.ok(shopHtml.includes('max-w-[1680px]'), 'shop.html must use max-w-[1680px]');
+  assert.ok(shopHtml.includes('w-full'), 'shop.html must use w-full');
 
   const productHtml = fs.readFileSync('product.html', 'utf8');
-  assert.ok(productHtml.includes('max-w-[1680px]'), 'product.html must use max-w-[1680px]');
+  assert.ok(productHtml.includes('w-full'), 'product.html must use w-full');
 
   const indexHtml = fs.readFileSync('index.html', 'utf8');
-  assert.ok(indexHtml.includes('max-w-[1680px]'), 'index.html must use max-w-[1680px]');
+  assert.ok(indexHtml.includes('w-full'), 'index.html must use w-full');
 
   const cartHtml = fs.readFileSync('cart.html', 'utf8');
-  assert.ok(cartHtml.includes('max-w-[1680px]'), 'cart.html must use max-w-[1680px]');
+  assert.ok(cartHtml.includes('w-full'), 'cart.html must use w-full');
 
   const layoutJs = fs.readFileSync('src/js/components/layout.js', 'utf8');
-  assert.ok(layoutJs.includes('max-w-[1680px]'), 'layout.js must use max-w-[1680px]');
+  assert.ok(layoutJs.includes('w-full'), 'layout.js must use w-full');
 
   const styleCss = fs.readFileSync('src/css/style.css', 'utf8');
   assert.ok(styleCss.includes('.atelier-container'), 'style.css must define .atelier-container');
@@ -312,8 +312,8 @@ test('Shop grid implements 2-3-4-5 column responsive hierarchy', () => {
   const shopHtml = fs.readFileSync('shop.html', 'utf8');
   assert.ok(shopHtml.includes('grid-cols-2'), 'Must support 2 cols for mobile');
   assert.ok(shopHtml.includes('md:grid-cols-3'), 'Must support 3 cols for tablet');
-  assert.ok(shopHtml.includes('xl:grid-cols-4'), 'Must support 4 cols for standard desktop');
-  assert.ok(shopHtml.includes('2xl:grid-cols-5'), 'Must support 5 cols for widescreen desktop');
+  assert.ok(shopHtml.includes('lg:grid-cols-4'), 'Must support 4 cols for standard desktop');
+  assert.ok(shopHtml.includes('xl:grid-cols-5'), 'Must support 5 cols for widescreen desktop');
 });
 
 test('Mobile search accessibility in header', () => {
